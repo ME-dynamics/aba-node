@@ -804,10 +804,10 @@
     "@typescript-eslint/types" "4.8.1"
     eslint-visitor-keys "^2.0.0"
 
-aba-utils@^0.5.2:
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/aba-utils/-/aba-utils-0.5.2.tgz#95b9933f7641f42b326b3ca086a405935f689243"
-  integrity sha512-a2KyJegjfZ9TsJRGLvp3EvKmdl7PIs4O09J+KNvU5p+WlrJPWswA4oSUzknwbyvw0cpEHU7TjyZGSUDY+MD1rA==
+aba-utils@^0.5.3:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/aba-utils/-/aba-utils-0.5.3.tgz#b297e650677600e0379375160d6fc02179bc044c"
+  integrity sha512-SlB6awYjOaUznKNHT5MTKmJ3WhN0a0dRWj9PBQ/RyM9f6574TycrlngQl59Sd5eUE0UxershGwTp6RpPCEOdIg==
 
 abab@^2.0.3:
   version "2.0.5"
