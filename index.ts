@@ -13,3 +13,4 @@ export { StatusCodes as status_codes } from "http-status-codes";
 export { httpClient } from "./src/http-client";
 
 export * from "aba-utils";
+export { pump } from "./src/pump";
