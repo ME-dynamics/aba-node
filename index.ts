@@ -11,3 +11,5 @@ export * as queryGen from "./src/query";
 export { StatusCodes as status_codes } from "http-status-codes";
 
 export { httpClient } from "./src/http-client";
+
+export * from "aba-utils";
