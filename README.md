@@ -1,16 +1,14 @@
-# aba-utils
+# aba-node
 
 
 
- aba-utils contains packages needed in abasoft development
+ aba-node contains packages needed in abasoft server side development
 
 ####   packages:
 
--   db-client: a wrapper around Cassandra-driver for Scylla db
--   detect-env: simple env detector for web, react native and node js.
+-   scylla-client: a wrapper around Cassandra-driver for Scylla db
 -   http-result: functions for different HTTP status, to standardize result structure
 -   query-gen: generate CQL queries based on Scylla db doc
 -   random-digits: securely create random digits in node js
--   error factory: extending Error class and added some other attributes
--   result: a standard structure to return results in code
-
+-   pump: promisified pipeline from node stream module
+-   http-client: fastify instance
