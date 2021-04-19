@@ -8,7 +8,7 @@ export { scyllaClient } from "./src/scylla-client";
 
 export * as queryGen from "./src/query";
 
-export { StatusCodes as status_codes } from "http-status-codes";
+export { StatusCodes as statusCodes } from "http-status-codes";
 
 export { httpClient } from "./src/http-client";
 

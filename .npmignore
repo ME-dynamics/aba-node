@@ -10,6 +10,7 @@ docs/
 __test__/
 benchmarks/
 src/
+index.ts
 .eslintignore
 .eslintrc.js
 .gitignore
