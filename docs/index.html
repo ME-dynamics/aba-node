@@ -58,21 +58,20 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<a href="#aba-utils" id="aba-utils" style="color: inherit; text-decoration: none;">
-					<h1>aba-utils</h1>
+				<a href="#aba-node" id="aba-node" style="color: inherit; text-decoration: none;">
+					<h1>aba-node</h1>
 				</a>
-				<p> aba-utils contains packages needed in abasoft development</p>
+				<p> aba-node contains packages needed in abasoft server side development</p>
 				<a href="#packages" id="packages" style="color: inherit; text-decoration: none;">
 					<h4>packages:</h4>
 				</a>
 				<ul>
-					<li>  db-client: a wrapper around Cassandra-driver for Scylla db</li>
-					<li>  detect-env: simple env detector for web, react native and node js.</li>
+					<li>  scylla-client: a wrapper around Cassandra-driver for Scylla db</li>
 					<li>  http-result: functions for different HTTP status, to standardize result structure</li>
 					<li>  query-gen: generate CQL queries based on Scylla db doc</li>
 					<li>  random-digits: securely create random digits in node js</li>
-					<li>  error factory: extending Error class and added some other attributes</li>
-					<li>  result: a standard structure to return results in code</li>
+					<li>  pump: promisified pipeline from node stream module</li>
+					<li>  http-client: fastify instance</li>
 				</ul>
 			</div>
 		</div>
@@ -108,16 +107,43 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-enum tsd-is-external">
-						<a href="enums/status_codes.html" class="tsd-kind-icon">status_<wbr>codes</a>
+						<a href="enums/statuscodes.html" class="tsd-kind-icon">status<wbr>Codes</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-external">
+						<a href="modules.html#errorfactory" class="tsd-kind-icon">Error<wbr>Factory</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="modules.html#errorschema" class="tsd-kind-icon">error<wbr>Schema</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="modules.html#fluentschema" class="tsd-kind-icon">fluent<wbr>Schema</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-external">
+						<a href="modules.html#time" class="tsd-kind-icon">time</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-external">
+						<a href="modules.html#detectenv" class="tsd-kind-icon">detect<wbr>Env</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="modules.html#httpclient" class="tsd-kind-icon">http<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter tsd-is-external">
+						<a href="modules.html#nulltoundefined" class="tsd-kind-icon">null<wbr>ToUndefined</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="modules.html#pump" class="tsd-kind-icon">pump</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter tsd-is-external">
+						<a href="modules.html#result" class="tsd-kind-icon">result</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="modules.html#scyllaclient" class="tsd-kind-icon">scylla<wbr>Client</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="modules.html#securerandomnumber" class="tsd-kind-icon">secure<wbr>Random<wbr>Number</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter tsd-is-external">
+						<a href="modules.html#undefinedtonull" class="tsd-kind-icon">undefined<wbr>ToNull</a>
 					</li>
 				</ul>
 			</nav>
