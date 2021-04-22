@@ -17,6 +17,7 @@ export function scyllaClient(info: IScyllaClient) {
       contactPoints: contactPoints,
       localDataCenter: localDataCenter,
       keyspace,
+      encoding: { useUndefinedAsUnset: true },
     });
     return {
       init: buildInit({ client }),
