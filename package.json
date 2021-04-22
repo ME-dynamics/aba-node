@@ -1,6 +1,6 @@
 {
   "name": "aba-node",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "node js utilities",
   "main": "build/index.js",
   "repository": "https://github.com/eyousefifar/aba-node",
