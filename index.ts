@@ -14,3 +14,5 @@ export { httpClient } from "./src/http-client";
 
 export * from "aba-utils";
 export { pump } from "./src/pump";
+
+export { errorSchema, fluentSchema } from "./src/schema";
