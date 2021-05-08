@@ -2,6 +2,7 @@ import { Client } from "cassandra-driver";
 import { buildInit } from "./init";
 import { buildSelect } from "./select";
 import { buildExecute } from "./execute";
+import { buildBatch } from "./batch"
 import { IScyllaClient } from "../types";
 import { ErrorFactory } from "aba-utils";
 
@@ -21,6 +22,7 @@ export function scyllaClient(info: IScyllaClient) {
     });
     return {
       init: buildInit({ client }),
+      batch: buildBatch({client}),
       select: buildSelect({ client }),
       insert: buildExecute({ client, mode: "insert" }),
       update: buildExecute({ client, mode: "update" }),
