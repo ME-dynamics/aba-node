@@ -4,7 +4,7 @@ import { IBuildDbFunc, ISelect, tResultSet } from "../types";
 
 /**
  ** builds select function for selecting rows, also check uniqueness if needed
- * @param args an object than contains a client instance of cassandra driver
+ * @param args object containing cassandra driver client instance
  * @returns  async function upsert 
  */
 export function buildSelect(args: IBuildDbFunc) {
@@ -15,7 +15,7 @@ export function buildSelect(args: IBuildDbFunc) {
    ** if not will result and Error Factory.
    * !remember if this happens in code. it's a design flaw and should be
    * !fixed immediately. must be caught on testing   
-   * @param info an object containing query string, params, unique and error path
+   * @param info object containing query string, params, unique and error path
    * @returns scylla db result set 
    */
   return async function select(info: ISelect): Promise<tResultSet> {
@@ -36,7 +36,7 @@ export function buildSelect(args: IBuildDbFunc) {
       return result;
     } catch (error) {
       throw new ErrorFactory({
-        name: "query_select_failed",
+        name: "select_failed",
         message: "problem in executing query",
         detail: `query: ${query}, params: ${params} failed to execute`,
         path: errorPath,
