@@ -14,7 +14,7 @@ export interface IScyllaClient extends IErrorPath {
 }
 export interface IBuildDbFunc {
   client: Client;
-  mode?: "delete" | "init" | "insert" | "update"
+  mode?: "delete" | "init" | "insert" | "update";
 }
 
 export interface ISelect extends IErrorPath {
@@ -188,6 +188,16 @@ export interface IIN {
 
 // functions
 
+interface IBatchQueries {
+  query: string;
+  params: Record<string, undefined>;
+}
+export interface IBatch {
+  queries: IBatchQueries[];
+  errorPath: string;
+}
+
 export type tDbSelectFunc = (info: ISelect) => Promise<tResultSet>;
 export type tDbUpsertFunc = (info: IQueryExec) => Promise<tResultSet>;
 export type tDbInitFunc = (info: IInit) => Promise<tResultSet>;
+export type tDbBatchFunc = (info: IBatch) => Promise<tResultSet>;
