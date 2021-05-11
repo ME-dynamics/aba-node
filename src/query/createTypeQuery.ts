@@ -1,4 +1,4 @@
-import { columnStringify } from "./column_stringify";
+import { columnStringify } from "./columnStringify";
 import { ICreateType, IQuery } from "../types";
 
 

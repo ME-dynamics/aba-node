@@ -1,4 +1,4 @@
-import { primaryKeyStringify } from "./primary_key_stringify";
+import { primaryKeyStringify } from "./primaryKeyStringify";
 import { IMaterialView, IQuery } from "../types";
 
 /**
