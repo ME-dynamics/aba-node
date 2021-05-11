@@ -1,5 +1,5 @@
-import { columnStringify } from "./column_stringify";
-import { primaryKeyStringify } from "./primary_key_stringify";
+import { columnStringify } from "./columnStringify";
+import { primaryKeyStringify } from "./primaryKeyStringify";
 import { ICreateTable, IQuery } from "../types";
 
 /**
@@ -17,9 +17,9 @@ export function createTableQuery(args: ICreateTable): IQuery {
     PRIMARY KEY ${primaryKeys}
 ) ${
     orderBy
-      ? `WITH CLUSTERING ORDER BY ${orderBy.key} ${
+      ? `WITH CLUSTERING ORDER BY (${orderBy.key} ${
           orderBy?.type
-        }`
+        })`
       : ""
   };`;
   return {
