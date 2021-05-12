@@ -1,6 +1,6 @@
-export * from "./http_result";
+export * from "./httpResult";
 
-export * from "./random_digits";
+export * from "./randomDigits";
 
 export * from "./db";
 

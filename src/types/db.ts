@@ -89,15 +89,16 @@ export interface IPrimaryKey {
   cluster?: string[];
 }
 
+export interface IOrderBy {
+    key: string;
+    type: "ASC" | "DESC";
+}
 export interface ICreateTable {
   name: string;
   version: string;
   columns: IDbColumn[];
   primaryKey: IPrimaryKey;
-  orderBy?: {
-    key: string;
-    type: "ASC" | "DESC";
-  };
+  orderBy?: IOrderBy[];
 }
 
 export interface IMaterialView {

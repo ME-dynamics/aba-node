@@ -1,6 +1,6 @@
-import { cryptoRandom } from "./crypto_random";
+import { cryptoRandom } from "./cryptoRandom";
 import { ErrorFactory } from "aba-utils";
-import { calculateParameters } from "./calculate_parameters";
+import { calculateParameters } from "./calculateParameters";
 import { ISecureRandomNumber } from "../types";
 
 
