@@ -1,5 +1,6 @@
 import { columnStringify } from "./columnStringify";
 import { primaryKeyStringify } from "./primaryKeyStringify";
+import { stringifyOrderBy } from "./stringifyOrderBy";
 import { ICreateTable, IQuery } from "../types";
 
 /**
@@ -15,16 +16,11 @@ export function createTableQuery(args: ICreateTable): IQuery {
   const tableQuery = `CREATE TABLE IF NOT EXISTS ${tableName} (
     ${dbColumns},
     PRIMARY KEY ${primaryKeys}
-) ${
-    orderBy
-      ? `WITH CLUSTERING ORDER BY (${orderBy.key} ${
-          orderBy?.type
-        })`
-      : ""
-  };`;
+) ${orderBy ? `WITH CLUSTERING ORDER BY (${stringifyOrderBy(orderBy)})` : ""};`;
   return {
     entityName: tableName,
     query: tableQuery,
   };
 }
+
 
