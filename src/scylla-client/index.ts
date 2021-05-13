@@ -6,6 +6,7 @@ import { buildBatch } from "./batch";
 import { Uuid } from "./datatype"
 import { IScyllaClient } from "../types";
 import { ErrorFactory } from "aba-utils";
+export * as dataType from "./datatype";
 
 /**
  ** create a scylla db client then builds CRUD methods

@@ -4,7 +4,7 @@ export * as types from "./src/types";
 export { secureRandomNumber } from "./src/random-digits";
 export * from "./src/http-result";
 
-export { scyllaClient } from "./src/scylla-client";
+export { scyllaClient, dataType } from "./src/scylla-client";
 
 export * as queryGen from "./src/query";
 
