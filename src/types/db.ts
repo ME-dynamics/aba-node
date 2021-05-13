@@ -3,11 +3,13 @@ import { Client, types } from "cassandra-driver";
 export type tResultSet = types.ResultSet;
 export type tRow = types.Row;
 export type tLong = types.Long;
-
 interface IErrorPath {
   errorPath: string | undefined;
 }
 export interface IScyllaClient extends IErrorPath {
+  id: string | undefined;
+  applicationName: string | undefined;
+  applicationVersion: string | undefined;
   contactPoints: string[];
   localDataCenter: string;
   keyspace: string;
@@ -21,6 +23,13 @@ export interface ISelect extends IErrorPath {
   query: string;
   params: Record<string, any> | undefined;
   unique: boolean;
+  queryOptions: {
+    autoPage: boolean | undefined;
+    fetchSize: number | undefined;
+    pageState: string | Buffer | undefined;
+    consistency: number | undefined;
+    serialConsistency: number | undefined;
+  };
 }
 
 export interface IQueryExec extends IErrorPath {
