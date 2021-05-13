@@ -2,7 +2,8 @@ import { Client } from "cassandra-driver";
 import { buildInit } from "./init";
 import { buildSelect } from "./select";
 import { buildExecute } from "./execute";
-import { buildBatch } from "./batch"
+import { buildBatch } from "./batch";
+import { Uuid } from "./datatype"
 import { IScyllaClient } from "../types";
 import { ErrorFactory } from "aba-utils";
 
@@ -12,17 +13,28 @@ import { ErrorFactory } from "aba-utils";
  * @returns an object containing init, select, upsert, delete methods
  */
 export function scyllaClient(info: IScyllaClient) {
-  const { contactPoints, keyspace, localDataCenter, errorPath } = info;
+  const {
+    contactPoints,
+    keyspace,
+    localDataCenter,
+    applicationName,
+    applicationVersion,
+    id,
+    errorPath,
+  } = info;
   try {
     const client = new Client({
+      applicationName,
+      applicationVersion,
+      id: id ? Uuid.fromString(id) : undefined,
       contactPoints: contactPoints,
       localDataCenter: localDataCenter,
       keyspace,
-      encoding: { useUndefinedAsUnset: true },
+      encoding: {},
     });
     return {
       init: buildInit({ client }),
-      batch: buildBatch({client}),
+      batch: buildBatch({ client }),
       select: buildSelect({ client }),
       insert: buildExecute({ client, mode: "insert" }),
       update: buildExecute({ client, mode: "update" }),
