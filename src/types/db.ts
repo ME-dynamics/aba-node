@@ -20,7 +20,7 @@ export interface IBuildDbFunc {
 export interface ISelect extends IErrorPath {
   query: string;
   params: Record<string, any> | undefined;
-  unique: true;
+  unique: boolean;
 }
 
 export interface IQueryExec extends IErrorPath {
@@ -90,8 +90,8 @@ export interface IPrimaryKey {
 }
 
 export interface IOrderBy {
-    key: string;
-    type: "ASC" | "DESC";
+  key: string;
+  type: "ASC" | "DESC";
 }
 export interface ICreateTable {
   name: string;
