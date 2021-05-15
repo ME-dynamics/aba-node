@@ -1,4 +1,5 @@
 import { primaryKeyStringify } from "./primaryKeyStringify";
+import { stringifyOrderBy } from "./stringifyOrderBy";
 import { IMaterialView, IQuery } from "../types";
 
 /**
@@ -7,12 +8,14 @@ import { IMaterialView, IQuery } from "../types";
  * @returns an object containing view name, and query string
  */
 export function createMaterialView(args: IMaterialView): IQuery {
-  const { name, version, selectQuery, primaryKey } = args;
+  const { name, version, selectQuery, primaryKey, orderBy } = args;
   const primaryKeys = primaryKeyStringify(primaryKey);
   // database should be in snake case
   const viewName = `${name.toLowerCase()}_${version.toLowerCase()}`;
   const viewQuey = `CREATE MATERIALIZED VIEW IF NOT EXISTS ${viewName} AS ${selectQuery}
-  PRIMARY KEY ${primaryKeys}`;
+  PRIMARY KEY ${primaryKeys} ${
+    orderBy ? ` WITH CLUSTERING ORDER BY (${stringifyOrderBy(orderBy)})` : ""
+  }`;
 
   return {
     entityName: viewName,

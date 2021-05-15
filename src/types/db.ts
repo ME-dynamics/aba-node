@@ -117,6 +117,7 @@ export interface IMaterialView {
   version: string;
   selectQuery: string;
   primaryKey: IPrimaryKey;
+  orderBy?: IOrderBy[];
 }
 export interface IQuery {
   entityName: string;
