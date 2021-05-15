@@ -23,13 +23,15 @@ export interface ISelect extends IErrorPath {
   query: string;
   params: Record<string, any> | undefined;
   unique: boolean;
-  queryOptions: {
-    autoPage: boolean | undefined;
-    fetchSize: number | undefined;
-    pageState: string | Buffer | undefined;
-    consistency: number | undefined;
-    serialConsistency: number | undefined;
-  };
+  queryOptions:
+    | {
+        autoPage: boolean | undefined;
+        fetchSize: number | undefined;
+        pageState: string | Buffer | undefined;
+        consistency: number | undefined;
+        serialConsistency: number | undefined;
+      }
+    | undefined;
 }
 
 export interface IQueryExec extends IErrorPath {
