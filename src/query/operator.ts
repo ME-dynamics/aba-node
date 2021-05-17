@@ -1,13 +1,5 @@
-import {
-  IEqual,
-  INotEqual,
-  IGreaterThan,
-  ILessThan,
-  IIN,
-} from "../types";
+import { IEqual, INotEqual, IGreaterThan, ILessThan, IIN } from "../types";
 import { separator } from "./constant";
-
-
 
 /**
  ** will generate a equal statement
@@ -43,8 +35,6 @@ export function greaterThan(args: IGreaterThan) {
   }
 }
 
-
-
 /**
  ** produce less than or equal and less than a value string
  ** using self will result in argument < :argument for passing parameter
@@ -61,7 +51,6 @@ export function lessThan(args: ILessThan) {
     return `${argument.toLowerCase()} <${equality ? "=" : ""} ${lessThan}`;
   }
 }
-
 
 /**
  ** produce not equal to a value string
@@ -80,7 +69,7 @@ export function notEqual(args: INotEqual) {
 /**
  ** produce IN operator, use one argument and a group of items like
  ** arg1 IN (1, 2, 3). it can use argument as should pass in array in.
- ** arg1 IN :arg1 =====> {arg1: [1,2,3]}; 
+ ** arg1 IN :arg1 =====> {arg1: [1,2,3]};
  * @param args an object containing argument, items or self indicator
  * @returns a IN operation string
  */
@@ -93,37 +82,35 @@ export function IN(args: IIN) {
   }
 }
 
-
-
 /**
  ** returns a is null check for scylla db
  * @param argument argument, string
- * @returns a string , is null check 
+ * @returns a string , is null check
  */
 export function isNull(argument: string) {
   return `${argument} = NULL`;
 }
 /**
- * returns a not null check for scylla db
+ * check if an argument is not null
  * @param argument argument string
- * @returns a string , not null check 
+ * @returns argument IS NOT NULL string;
  */
 export function notNull(argument: string) {
-  return `${argument} != NULL`;
+  return `${argument} IS NOT NULL`;
 }
 
 /**
  * @returns EXISTS string
  */
 export function exists() {
-  return "EXISTS"
+  return "IF EXISTS";
 }
 
 /**
  * @returns NOT EXISTS string
  */
 export function notExists() {
-  return "NOT EXISTS"
+  return "IF NOT EXISTS";
 }
 
 // export function contains(args) {
