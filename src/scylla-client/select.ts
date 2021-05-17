@@ -1,5 +1,5 @@
 import { ErrorFactory } from "aba-utils";
-import { IBuildDbFunc, ISelect, tResultSet } from "../types";
+import { IBuildDbFunc, ISelect, IQueryOptions ,tResultSet } from "../types";
 
 /**
  ** builds select function for selecting rows, also check uniqueness if needed
@@ -8,6 +8,18 @@ import { IBuildDbFunc, ISelect, tResultSet } from "../types";
  */
 export function buildSelect(args: IBuildDbFunc) {
   const { client } = args;
+  function queryOptionsGen(queryOptions: IQueryOptions | undefined): IQueryOptions {
+    if(!queryOptions){
+      return {
+        autoPage: undefined,
+        consistency: undefined,
+        fetchSize: undefined,
+        pageState: undefined,
+        serialConsistency: undefined
+      }
+    }
+    return queryOptions;
+  }
   /**
    ** select rows from db using client, if row needs to be unique, it will
    ** check uniqueness. meaning there should be only one result per query ( for each partition key )
@@ -25,7 +37,7 @@ export function buildSelect(args: IBuildDbFunc) {
       fetchSize,
       pageState,
       serialConsistency,
-    } = queryOptions;
+    } = queryOptionsGen(queryOptions);
     try {
       const result = await client.execute(query, params, {
         prepare: true,
