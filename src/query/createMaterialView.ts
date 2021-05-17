@@ -11,11 +11,12 @@ export function createMaterialView(args: IMaterialView): IQuery {
   const { name, version, selectQuery, primaryKey, orderBy } = args;
   const primaryKeys = primaryKeyStringify(primaryKey);
   // database should be in snake case
+  // replace ; with space ' ' at select query to prevent error
   const viewName = `${name.toLowerCase()}_${version.toLowerCase()}`;
-  const viewQuey = `CREATE MATERIALIZED VIEW IF NOT EXISTS ${viewName} AS ${selectQuery}
+  const viewQuey = `CREATE MATERIALIZED VIEW IF NOT EXISTS ${viewName} AS ${selectQuery.replace(";", " ")}
   PRIMARY KEY ${primaryKeys} ${
     orderBy ? ` WITH CLUSTERING ORDER BY (${stringifyOrderBy(orderBy)})` : ""
-  }`;
+  };`;
 
   return {
     entityName: viewName,
