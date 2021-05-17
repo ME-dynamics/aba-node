@@ -19,19 +19,18 @@ export interface IBuildDbFunc {
   mode?: "delete" | "init" | "insert" | "update";
 }
 
+export interface IQueryOptions {
+  autoPage: boolean | undefined;
+  fetchSize: number | undefined;
+  pageState: string | Buffer | undefined;
+  consistency: number | undefined;
+  serialConsistency: number | undefined;
+}
 export interface ISelect extends IErrorPath {
   query: string;
   params: Record<string, any> | undefined;
   unique: boolean;
-  queryOptions:
-    | {
-        autoPage: boolean | undefined;
-        fetchSize: number | undefined;
-        pageState: string | Buffer | undefined;
-        consistency: number | undefined;
-        serialConsistency: number | undefined;
-      }
-    | undefined;
+  queryOptions: IQueryOptions | undefined;
 }
 
 export interface IQueryExec extends IErrorPath {
