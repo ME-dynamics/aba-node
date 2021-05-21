@@ -76,6 +76,7 @@ export interface IDbColumn {
   map?: {
     keyType: tScyllaNativeTypes;
     valueType: tScyllaNativeTypes;
+    valueUdtName?: string;
   };
 }
 

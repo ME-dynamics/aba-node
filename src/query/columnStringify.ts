@@ -53,13 +53,15 @@ export function columnStringify(columns: IDbColumn[]): string {
         throw new Error(
           "you must define map key value type, when column type is map"
         );
-      const { keyType, valueType } = map;
+      const { keyType, valueType, valueUdtName } = map;
 
       if (valueType === "UDT") {
-        if (!udtName)
+        if (!valueUdtName) {
           throw new Error("udt name must be defined when type is set to UDT");
+        }
+          
         columnString.push(
-          `${name.toLowerCase()} map<${keyType.toLowerCase()}, frozen<${valueType.toLowerCase()}>>`
+          `${name.toLowerCase()} map<${keyType.toLowerCase()}, frozen<${valueUdtName.toLowerCase()}>>`
         );
       } else if (
         valueType === "SET" ||
