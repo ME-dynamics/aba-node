@@ -203,7 +203,7 @@ export interface IIN {
 
 interface IBatchQueries {
   query: string;
-  params: Record<string, undefined>;
+  params: Record<string, unknown>;
 }
 export interface IBatch {
   queries: IBatchQueries[];
