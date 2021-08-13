@@ -13,6 +13,6 @@ export function createIndexQuery(args: ICreateIndex) {
   const tableName = `${table.toLowerCase()}_${version.toLowerCase()}`;
 
   return `CREATE INDEX IF NOT EXISTS ${indexName} ON ${tableName} (${
-    localIndex ? `(${localIndex.partition_key}),` : ""
+    localIndex ? `(${localIndex.partitionKey}),` : ""
   }${indexKey.toLowerCase()});`;
 }
