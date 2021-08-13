@@ -86,7 +86,7 @@ export interface ICreateIndex {
   table: string;
   indexKey: string;
   localIndex?: {
-    partition_key: string;
+    partitionKey: string;
   };
 }
 export interface ICreateType {
