@@ -72,6 +72,7 @@
 						<section class="tsd-index-section ">
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/types.ibatch.html" class="tsd-kind-icon">IBatch</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/types.ibuilddbfunc.html" class="tsd-kind-icon">IBuild<wbr>DbFunc</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/types.icreateindex.html" class="tsd-kind-icon">ICreate<wbr>Index</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/types.icreatetable.html" class="tsd-kind-icon">ICreate<wbr>Table</a></li>
@@ -88,12 +89,15 @@
 								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/types.ilessthan.html" class="tsd-kind-icon">ILess<wbr>Than</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/types.imaterialview.html" class="tsd-kind-icon">IMaterial<wbr>View</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/types.inotequal.html" class="tsd-kind-icon">INot<wbr>Equal</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/types.iorderby.html" class="tsd-kind-icon">IOrder<wbr>By</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-namespace tsd-has-type-parameter"><a href="../interfaces/types.ipayload.html" class="tsd-kind-icon">IPayload</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-namespace tsd-has-type-parameter"><a href="../interfaces/types.ipayloadresult.html" class="tsd-kind-icon">IPayload<wbr>Result</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/types.iprimarykey.html" class="tsd-kind-icon">IPrimary<wbr>Key</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/types.iquery.html" class="tsd-kind-icon">IQuery</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/types.iqueryexec.html" class="tsd-kind-icon">IQuery<wbr>Exec</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/types.iqueryoptions.html" class="tsd-kind-icon">IQuery<wbr>Options</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/types.ireqerror.html" class="tsd-kind-icon">IReq<wbr>Error</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/types.iroles.html" class="tsd-kind-icon">IRoles</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/types.iscyllaclient.html" class="tsd-kind-icon">IScylla<wbr>Client</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/types.isecurerandomnumber.html" class="tsd-kind-icon">ISecure<wbr>Random<wbr>Number</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/types.iselect.html" class="tsd-kind-icon">ISelect</a></li>
@@ -106,6 +110,7 @@
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias tsd-parent-kind-namespace"><a href="types.html#tdbbatchfunc" class="tsd-kind-icon">t<wbr>DbBatch<wbr>Func</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-namespace"><a href="types.html#tdbinitfunc" class="tsd-kind-icon">t<wbr>DbInit<wbr>Func</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-namespace"><a href="types.html#tdbselectfunc" class="tsd-kind-icon">t<wbr>DbSelect<wbr>Func</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-namespace"><a href="types.html#tdbupsertfunc" class="tsd-kind-icon">t<wbr>DbUpsert<wbr>Func</a></li>
@@ -125,12 +130,43 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Type aliases</h2>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-namespace">
+					<a name="tdbbatchfunc" class="tsd-anchor"></a>
+					<h3>t<wbr>DbBatch<wbr>Func</h3>
+					<div class="tsd-signature tsd-kind-icon">t<wbr>DbBatch<wbr>Func<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>info<span class="tsd-signature-symbol">: </span><a href="../interfaces/types.ibatch.html" class="tsd-signature-type" data-tsd-kind="Interface">IBatch</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.html#tresultset" class="tsd-signature-type" data-tsd-kind="Type alias">tResultSet</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/eyousefifar/aba-node/blob/753feb8/src/types/db.ts#L216">src/types/db.ts:216</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>info<span class="tsd-signature-symbol">: </span><a href="../interfaces/types.ibatch.html" class="tsd-signature-type" data-tsd-kind="Interface">IBatch</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.html#tresultset" class="tsd-signature-type" data-tsd-kind="Type alias">tResultSet</a><span class="tsd-signature-symbol">&gt;</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>info: <a href="../interfaces/types.ibatch.html" class="tsd-signature-type" data-tsd-kind="Interface">IBatch</a></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.html#tresultset" class="tsd-signature-type" data-tsd-kind="Type alias">tResultSet</a><span class="tsd-signature-symbol">&gt;</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-namespace">
 					<a name="tdbinitfunc" class="tsd-anchor"></a>
 					<h3>t<wbr>DbInit<wbr>Func</h3>
 					<div class="tsd-signature tsd-kind-icon">t<wbr>DbInit<wbr>Func<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>info<span class="tsd-signature-symbol">: </span><a href="../interfaces/types.iinit.html" class="tsd-signature-type" data-tsd-kind="Interface">IInit</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.html#tresultset" class="tsd-signature-type" data-tsd-kind="Type alias">tResultSet</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eyousefifar/aba-node/blob/8a7c25f/src/types/db.ts#L193">src/types/db.ts:193</a></li>
+							<li>Defined in <a href="https://github.com/eyousefifar/aba-node/blob/753feb8/src/types/db.ts#L215">src/types/db.ts:215</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -161,7 +197,7 @@
 					<div class="tsd-signature tsd-kind-icon">t<wbr>DbSelect<wbr>Func<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>info<span class="tsd-signature-symbol">: </span><a href="../interfaces/types.iselect.html" class="tsd-signature-type" data-tsd-kind="Interface">ISelect</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.html#tresultset" class="tsd-signature-type" data-tsd-kind="Type alias">tResultSet</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eyousefifar/aba-node/blob/8a7c25f/src/types/db.ts#L191">src/types/db.ts:191</a></li>
+							<li>Defined in <a href="https://github.com/eyousefifar/aba-node/blob/753feb8/src/types/db.ts#L213">src/types/db.ts:213</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -192,7 +228,7 @@
 					<div class="tsd-signature tsd-kind-icon">t<wbr>DbUpsert<wbr>Func<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>info<span class="tsd-signature-symbol">: </span><a href="../interfaces/types.iqueryexec.html" class="tsd-signature-type" data-tsd-kind="Interface">IQueryExec</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.html#tresultset" class="tsd-signature-type" data-tsd-kind="Type alias">tResultSet</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eyousefifar/aba-node/blob/8a7c25f/src/types/db.ts#L192">src/types/db.ts:192</a></li>
+							<li>Defined in <a href="https://github.com/eyousefifar/aba-node/blob/753feb8/src/types/db.ts#L214">src/types/db.ts:214</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -223,7 +259,7 @@
 					<div class="tsd-signature tsd-kind-icon">t<wbr>Http<wbr>Verbs<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;GET&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;HEAD&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;POST&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;PUT&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;PATCH&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;DELETE&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eyousefifar/aba-node/blob/8a7c25f/src/types/http_result.ts#L22">src/types/http_result.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/eyousefifar/aba-node/blob/753feb8/src/types/httpResult.ts#L22">src/types/httpResult.ts:22</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -233,7 +269,7 @@
 					<div class="tsd-signature tsd-kind-icon">t<wbr>Long<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">types.Long</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eyousefifar/aba-node/blob/8a7c25f/src/types/db.ts#L5">src/types/db.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/eyousefifar/aba-node/blob/753feb8/src/types/db.ts#L5">src/types/db.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -243,7 +279,7 @@
 					<div class="tsd-signature tsd-kind-icon">t<wbr>Pump<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">typeof </span><a href="../modules.html#pump" class="tsd-signature-type" data-tsd-kind="Function">pump</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eyousefifar/aba-node/blob/8a7c25f/src/types/pump.ts#L3">src/types/pump.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/eyousefifar/aba-node/blob/753feb8/src/types/pump.ts#L3">src/types/pump.ts:3</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -253,7 +289,7 @@
 					<div class="tsd-signature tsd-kind-icon">t<wbr>Reply<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">FastifyReply</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eyousefifar/aba-node/blob/8a7c25f/src/types/http.ts#L5">src/types/http.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/eyousefifar/aba-node/blob/753feb8/src/types/http.ts#L5">src/types/http.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -263,7 +299,7 @@
 					<div class="tsd-signature tsd-kind-icon">t<wbr>Request&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">FastifyRequest</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eyousefifar/aba-node/blob/8a7c25f/src/types/http.ts#L3">src/types/http.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/eyousefifar/aba-node/blob/753feb8/src/types/http.ts#L3">src/types/http.ts:3</a></li>
 						</ul>
 					</aside>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -279,7 +315,7 @@
 					<div class="tsd-signature tsd-kind-icon">t<wbr>Result<wbr>Set<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">types.ResultSet</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eyousefifar/aba-node/blob/8a7c25f/src/types/db.ts#L3">src/types/db.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/eyousefifar/aba-node/blob/753feb8/src/types/db.ts#L3">src/types/db.ts:3</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -289,7 +325,7 @@
 					<div class="tsd-signature tsd-kind-icon">t<wbr>Row<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">types.Row</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eyousefifar/aba-node/blob/8a7c25f/src/types/db.ts#L4">src/types/db.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/eyousefifar/aba-node/blob/753feb8/src/types/db.ts#L4">src/types/db.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -299,7 +335,7 @@
 					<div class="tsd-signature tsd-kind-icon">t<wbr>Scylla<wbr>Native<wbr>Types<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;ASCII&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;BIGINT&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;BLOB&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;BOOLEAN&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;COUNTER&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;DATE&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;DECIMAL&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;DOUBLE&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;DURATION&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;FLOAT&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;INET&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;INT&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;SMALLINT&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;TEXT&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;TIME&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;TIMESTAMP&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;TIMEUUID&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;TINYINT&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;UUID&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;VARCHAR&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;VARINT&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;SET&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;MAP&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;UDT&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eyousefifar/aba-node/blob/8a7c25f/src/types/db.ts#L35">src/types/db.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/eyousefifar/aba-node/blob/753feb8/src/types/db.ts#L45">src/types/db.ts:45</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -310,6 +346,9 @@
 				<ul>
 					<li class=" ">
 						<a href="../modules.html">Exports</a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="datatype.html">data<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-namespace">
 						<a href="httpresultclienterror.html">http<wbr>Result<wbr>Client<wbr>Error</a>
@@ -336,6 +375,9 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
+						<a href="../interfaces/types.ibatch.html" class="tsd-kind-icon">IBatch</a>
+					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="../interfaces/types.ibuilddbfunc.html" class="tsd-kind-icon">IBuild<wbr>DbFunc</a>
 					</li>
@@ -384,6 +426,9 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="../interfaces/types.inotequal.html" class="tsd-kind-icon">INot<wbr>Equal</a>
 					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
+						<a href="../interfaces/types.iorderby.html" class="tsd-kind-icon">IOrder<wbr>By</a>
+					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-namespace tsd-has-type-parameter">
 						<a href="../interfaces/types.ipayload.html" class="tsd-kind-icon">IPayload</a>
 					</li>
@@ -400,7 +445,13 @@
 						<a href="../interfaces/types.iqueryexec.html" class="tsd-kind-icon">IQuery<wbr>Exec</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
+						<a href="../interfaces/types.iqueryoptions.html" class="tsd-kind-icon">IQuery<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="../interfaces/types.ireqerror.html" class="tsd-kind-icon">IReq<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
+						<a href="../interfaces/types.iroles.html" class="tsd-kind-icon">IRoles</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="../interfaces/types.iscyllaclient.html" class="tsd-kind-icon">IScylla<wbr>Client</a>
@@ -422,6 +473,9 @@
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="../interfaces/types.ivalues.html" class="tsd-kind-icon">IValues</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-namespace">
+						<a href="types.html#tdbbatchfunc" class="tsd-kind-icon">t<wbr>DbBatch<wbr>Func</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-namespace">
 						<a href="types.html#tdbinitfunc" class="tsd-kind-icon">t<wbr>DbInit<wbr>Func</a>
