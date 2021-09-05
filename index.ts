@@ -1,6 +1,8 @@
 import * as types from "./src/types";
 export * as types from "./src/types";
 
+export { auth } from "./src/auth"
+
 export { secureRandomNumber } from "./src/random-digits";
 export * from "./src/http-result";
 
