@@ -214,3 +214,4 @@ export type tDbSelectFunc = (info: ISelect) => Promise<tResultSet>;
 export type tDbUpsertFunc = (info: IQueryExec) => Promise<tResultSet>;
 export type tDbInitFunc = (info: IInit) => Promise<tResultSet>;
 export type tDbBatchFunc = (info: IBatch) => Promise<tResultSet>;
+export type tDbDeleteFunc = (info: IQueryExec) => Promise<tResultSet>;
