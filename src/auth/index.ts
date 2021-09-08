@@ -41,42 +41,42 @@ export function auth<T>(httpRequest: tRequest<T>, roles: IRoles): IAuth {
   if (admin && jwt["admin"]) {
     return {
       success: true,
-      error: unauthorized({ error: "" }),
+      error: unauthorized({ error: "undefined error" }),
       payload: { userId: jwt["sub"] },
     };
   }
   if (provider && jwt["provider"]) {
     return {
       success: true,
-      error: unauthorized({ error: "" }),
+      error: unauthorized({ error: "undefined error" }),
       payload: { userId: jwt["sub"] },
     };
   }
   if (customer && jwt["customer"]) {
     return {
       success: true,
-      error: unauthorized({ error: "" }),
+      error: unauthorized({ error: "undefined error" }),
       payload: { userId: jwt["sub"] },
     };
   }
   if (assistant && jwt["assistant"]) {
     return {
       success: true,
-      error: unauthorized({ error: "" }),
+      error: unauthorized({ error: "undefined error" }),
       payload: { userId: jwt["sub"] },
     };
   }
   if (accountant && jwt["accountant"]) {
     return {
       success: true,
-      error: unauthorized({ error: "" }),
+      error: unauthorized({ error: "undefined error" }),
       payload: { userId: jwt["sub"] },
     };
   }
   if (support && jwt["support"]) {
     return {
       success: true,
-      error: unauthorized({ error: "" }),
+      error: unauthorized({ error: "undefined error" }),
       payload: { userId: jwt["sub"] },
     };
   }
