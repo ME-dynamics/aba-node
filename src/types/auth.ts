@@ -9,17 +9,10 @@ export interface IRoles {
   accountant: boolean;
 }
 
-export interface IAuthError {
-  success: false;
+export interface IAuth {
+  success: boolean;
   error: IErrorResult;
-  payload: undefined;
-}
-export interface IAuthSuccess {
-  success: true;
-  error: undefined;
   payload: {
     userId: string;
   };
 }
-
-export type tAuthResult = IAuthError | IAuthSuccess;

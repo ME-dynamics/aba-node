@@ -1,15 +1,15 @@
 import { httpResultClientError } from "../http-result";
-import { tRequest, IRoles, tAuthResult } from "../types";
+import { tRequest, IRoles, IAuth } from "../types";
 
 const { unauthorized } = httpResultClientError;
 
-export function auth<T>(httpRequest: tRequest<T>, roles: IRoles): tAuthResult {
+export function auth<T>(httpRequest: tRequest<T>, roles: IRoles): IAuth {
   const jwtPayload = httpRequest.headers["x-jwt-payload"];
   if (typeof jwtPayload !== "string") {
     return {
       success: false,
       error: unauthorized({ error: "jwt is not defined" }),
-      payload: undefined,
+      payload: { userId: "" },
     };
   }
   const jwt = JSON.parse(Buffer.from(jwtPayload, "base64").toString());
@@ -18,14 +18,14 @@ export function auth<T>(httpRequest: tRequest<T>, roles: IRoles): tAuthResult {
     return {
       success: false,
       error: unauthorized({ error: "invalid jwt" }),
-      payload: undefined,
+      payload: { userId: "" },
     };
   }
   if (jwt["exp"] < Date.now() / 1000) {
     return {
       success: false,
       error: unauthorized({ error: "jwt expired" }),
-      payload: undefined,
+      payload: { userId: "" },
     };
   }
   // check if jwt has id
@@ -33,7 +33,7 @@ export function auth<T>(httpRequest: tRequest<T>, roles: IRoles): tAuthResult {
     return {
       success: false,
       error: unauthorized({ error: "invalid jwt" }),
-      payload: undefined,
+      payload: { userId: "" },
     };
   }
   const { admin, accountant, assistant, customer, provider, support } = roles;
@@ -41,48 +41,48 @@ export function auth<T>(httpRequest: tRequest<T>, roles: IRoles): tAuthResult {
   if (admin && jwt["admin"]) {
     return {
       success: true,
-      error: undefined,
+      error: unauthorized({ error: "" }),
       payload: { userId: jwt["sub"] },
     };
   }
   if (provider && jwt["provider"]) {
     return {
       success: true,
-      error: undefined,
+      error: unauthorized({ error: "" }),
       payload: { userId: jwt["sub"] },
     };
   }
   if (customer && jwt["customer"]) {
     return {
       success: true,
-      error: undefined,
+      error: unauthorized({ error: "" }),
       payload: { userId: jwt["sub"] },
     };
   }
   if (assistant && jwt["assistant"]) {
     return {
       success: true,
-      error: undefined,
+      error: unauthorized({ error: "" }),
       payload: { userId: jwt["sub"] },
     };
   }
   if (accountant && jwt["accountant"]) {
     return {
       success: true,
-      error: undefined,
+      error: unauthorized({ error: "" }),
       payload: { userId: jwt["sub"] },
     };
   }
   if (support && jwt["support"]) {
     return {
       success: true,
-      error: undefined,
+      error: unauthorized({ error: "" }),
       payload: { userId: jwt["sub"] },
     };
   }
   return {
     success: false,
     error: unauthorized({ error: "unauthorized" }),
-    payload: undefined,
+    payload: { userId: "" },
   };
 }
