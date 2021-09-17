@@ -13,6 +13,7 @@ function clientError(args: IReqError, code: number): IErrorResult {
   return {
     code,
     error,
+    payload: undefined,
   };
 }
 
@@ -85,9 +86,7 @@ export function notAcceptable(args: IReqError): IErrorResult {
  * @param args an object that contains request error text
  * @returns an object containing error number and error string
  */
-export function proxyAuthenticationRequired(
-  args: IReqError
-): IErrorResult {
+export function proxyAuthenticationRequired(args: IReqError): IErrorResult {
   return clientError(args, StatusCodes.PROXY_AUTHENTICATION_REQUIRED);
 }
 
@@ -146,7 +145,6 @@ export function requestEntityTooLarge(args: IReqError): IErrorResult {
   return clientError(args, StatusCodes.REQUEST_TOO_LONG);
 }
 
-
 /**
  ** request uri too long
  * @param args an object that contains request error text
@@ -170,9 +168,7 @@ export function unsupportedMediaType(args: IReqError): IErrorResult {
  * @param args an object that contains request error text
  * @returns an object containing error number and error string
  */
-export function requestedRangeNotSatisfiable(
-  args: IReqError
-): IErrorResult {
+export function requestedRangeNotSatisfiable(args: IReqError): IErrorResult {
   return clientError(args, StatusCodes.REQUESTED_RANGE_NOT_SATISFIABLE);
 }
 
@@ -199,9 +195,7 @@ export function imATeapot(args: IReqError): IErrorResult {
  * @param args an object that contains request error text
  * @returns an object containing error number and error string
  */
-export function insufficientSpaceOnResource(
-  args: IReqError
-): IErrorResult {
+export function insufficientSpaceOnResource(args: IReqError): IErrorResult {
   return clientError(args, StatusCodes.INSUFFICIENT_SPACE_ON_RESOURCE);
 }
 
@@ -259,9 +253,7 @@ export function tooManyRequests(args: IReqError): IErrorResult {
  * @param args an object that contains request error text
  * @returns an object containing error number and error string
  */
-export function requestHeaderFieldsTooLarge(
-  args: IReqError
-): IErrorResult {
+export function requestHeaderFieldsTooLarge(args: IReqError): IErrorResult {
   return clientError(args, StatusCodes.REQUEST_HEADER_FIELDS_TOO_LARGE);
 }
 
@@ -270,8 +262,6 @@ export function requestHeaderFieldsTooLarge(
  * @param args an object that contains request error text
  * @returns an object containing error number and error string
  */
-export function unavailableForLegalReasons(
-  args: IReqError
-): IErrorResult {
+export function unavailableForLegalReasons(args: IReqError): IErrorResult {
   return clientError(args, StatusCodes.UNAVAILABLE_FOR_LEGAL_REASONS);
 }

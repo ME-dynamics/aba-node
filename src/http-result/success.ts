@@ -1,9 +1,8 @@
 import { StatusCodes } from "http-status-codes";
 import { IPayloadResult, IPayload } from "../types";
 
-
 /**
- ** general function for success http result 
+ ** general function for success http result
  * @param args an object containing payload object
  * @param code http status code number
  * @returns an object containing code number and payload
@@ -14,11 +13,12 @@ function success<T>(args: IPayload<T>, code: number): IPayloadResult<T> {
   return {
     code,
     payload,
+    error: undefined,
   };
 }
 
 /**
- ** ok  
+ ** ok
  * @param args an object containing payload object
  * @returns an object containing code number and payload
  */
@@ -27,7 +27,7 @@ export function ok<T>(args: IPayload<T>): IPayloadResult<T> {
 }
 
 /**
- ** created  
+ ** created
  * @param args an object containing payload object
  * @returns an object containing code number and payload
  */
@@ -36,7 +36,7 @@ export function created<T>(args: IPayload<T>): IPayloadResult<T> {
 }
 
 /**
- ** no content  
+ ** no content
  * @param args an object containing payload object
  * @returns an object containing code number and payload
  */
@@ -44,10 +44,8 @@ export function noContent<T>(args: IPayload<T>): IPayloadResult<T> {
   return success(args, StatusCodes.NO_CONTENT);
 }
 
-
-
 /**
- ** accepted  
+ ** accepted
  * @param args an object containing payload object
  * @returns an object containing code number and payload
  */
@@ -56,7 +54,7 @@ export function accepted<T>(args: IPayload<T>): IPayloadResult<T> {
 }
 
 /**
- ** non authoritative information  
+ ** non authoritative information
  * @param args an object containing payload object
  * @returns an object containing code number and payload
  */
@@ -67,7 +65,7 @@ export function nonAuthoritativeInformation<T>(
 }
 
 /**
- ** reset content  
+ ** reset content
  * @param args an object containing payload object
  * @returns an object containing code number and payload
  */
@@ -76,7 +74,7 @@ export function resetContent<T>(args: IPayload<T>): IPayloadResult<T> {
 }
 
 /**
- ** partial content  
+ ** partial content
  * @param args an object containing payload object
  * @returns an object containing code number and payload
  */
@@ -85,7 +83,7 @@ export function partialContent<T>(args: IPayload<T>): IPayloadResult<T> {
 }
 
 /**
- ** multi status  
+ ** multi status
  * @param args an object containing payload object
  * @returns an object containing code number and payload
  */

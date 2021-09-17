@@ -3,11 +3,13 @@ import { StatusCodes } from "http-status-codes";
 export interface IPayloadResult<T> {
   code: StatusCodes;
   payload: T;
+  error: undefined;
 }
 
 export interface IErrorResult {
   code: StatusCodes;
   error: string;
+  payload: undefined;
 }
 export interface IPayload<T> {
   payload: T ;
