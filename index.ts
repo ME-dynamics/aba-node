@@ -1,7 +1,7 @@
 import * as types from "./src/types";
 export * as types from "./src/types";
 
-export { auth } from "./src/auth"
+export { auth } from "./src/auth";
 
 export { secureRandomNumber } from "./src/random-digits";
 export * from "./src/http-result";
@@ -12,7 +12,7 @@ export * as queryGen from "./src/query";
 
 export { StatusCodes as statusCodes } from "http-status-codes";
 
-export { httpClient } from "./src/http-client";
+export { httpClient, routeGen } from "./src/http-client";
 
 export * from "aba-utils";
 export { pump } from "./src/pump";
