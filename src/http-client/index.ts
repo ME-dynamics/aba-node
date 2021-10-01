@@ -1,8 +1,8 @@
 import fastify from "fastify";
-import { IHttpClient } from "../types"
+import { tHttpOptions } from "../types";
 
-
-export function httpClient(args: IHttpClient) {
-    const { dev } = args
-    return fastify({logger: dev});
+export function httpClient(args: tHttpOptions) {
+  return fastify(args);
 }
+
+export { routeGen } from "./routeGen";
