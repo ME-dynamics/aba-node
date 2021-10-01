@@ -1,4 +1,9 @@
-import { FastifyRequest, FastifyReply, FastifyInstance } from "fastify";
+import {
+  FastifyRequest,
+  FastifyReply,
+  FastifyInstance,
+  FastifyServerOptions,
+} from "fastify";
 
 export type tRequest<T> = FastifyRequest<T>;
 // http interfaces start
@@ -7,7 +12,17 @@ export type tReply = FastifyReply;
 
 export type tHttpInstance = FastifyInstance;
 
-export interface IHttpClient {
-    dev: boolean;
-}
+export type tHttpOptions = FastifyServerOptions;
 
+export interface IRouteGen {
+  version: string;
+  role:
+    | "shared"
+    | "admin"
+    | "provider"
+    | "customer"
+    | "support"
+    | "assistant"
+    | "accountant";
+  routes: string[]
+}
