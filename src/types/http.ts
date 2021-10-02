@@ -23,6 +23,7 @@ export interface IRouteGen {
     | "customer"
     | "support"
     | "assistant"
-    | "accountant";
-  routes: string[]
+    | "accountant"
+    | "internal";
+  routes: string[];
 }
