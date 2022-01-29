@@ -14,5 +14,13 @@ export interface IAuth {
   error: IErrorResult;
   payload: {
     userId: string;
+    role:
+      | "admin"
+      | "provider"
+      | "customer"
+      | "support"
+      | "assistant"
+      | "accountant"
+      | "";
   };
 }
