@@ -14,16 +14,7 @@ export type tHttpInstance = FastifyInstance;
 
 export type tHttpOptions = FastifyServerOptions;
 
-export interface IRouteGen {
+export interface IBuildRouteGen {
   version: string;
-  role:
-    | "shared"
-    | "admin"
-    | "provider"
-    | "customer"
-    | "support"
-    | "assistant"
-    | "accountant"
-    | "internal";
-  routes: string[];
+  service: string;
 }

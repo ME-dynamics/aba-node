@@ -69,28 +69,28 @@ export type tScyllaNativeTypes =
   | "UDT";
 
 export interface IDbColumn {
-  name: string;
-  type: tScyllaNativeTypes;
+  columnName: string;
+  columnType: tScyllaNativeTypes;
   setType?: tScyllaNativeTypes;
   udtName?: string;
-  map?: {
+  mapType?: {
     keyType: tScyllaNativeTypes;
     valueType: tScyllaNativeTypes;
-    valueUdtName?: string;
+    udtName?: string;
   };
 }
 
 export interface ICreateIndex {
-  name: string;
+  indexName: string;
   version: string;
-  table: string;
+  indexOnTable: string;
   indexKey: string;
   localIndex?: {
     partitionKey: string;
   };
 }
 export interface ICreateType {
-  name: string;
+  typeName: string;
   version: string;
   columns: IDbColumn[];
 }
@@ -113,21 +113,29 @@ export interface ICreateTable {
 }
 
 export interface IMaterialView {
-  name: string;
+  materialViewName: string;
   version: string;
   selectQuery: string;
   primaryKey: IPrimaryKey;
   orderBy?: IOrderBy[];
 }
+export interface ICreateTableQuery {
+  name: string;
+  query: string;
+  logQuery: string;
+}
 export interface IQuery {
-  entityName: string;
+  name: string;
   query: string;
 }
-
+export interface IDmlQuery {
+  query: string;
+  logQuery: string;
+}
 export interface IValues {
   column: string;
-  value?: string | number | boolean | null;
-  self?: boolean;
+  staticValue?: string | number | boolean | null;
+  dynamicValue?: boolean;
 }
 export interface IInsertQuery {
   table: string;
@@ -141,12 +149,14 @@ export interface IUpdateQuery {
   values: IValues[];
   where: string[];
   lwt?: string[];
+  logIdLabel: string;
 }
 export interface IDeleteQuery {
   table: string;
   version: string;
   columns: string[] | undefined;
   where: string[];
+  logIdLabel: string;
   lwt?: string[];
 }
 export interface ISelectQuery {
@@ -164,34 +174,34 @@ export interface ISelectQuery {
 }
 export interface IEqual {
   argument: string;
-  self?: boolean;
-  equals?: string | number | boolean;
+  dynamicValue?: boolean;
+  staticValue?: string | number | boolean;
 }
 
 export interface IGreaterThan {
   argument: string;
-  equality: boolean;
-  self?: boolean;
-  greaterThan?: string | number | boolean;
+  equalAndGreater: boolean;
+  dynamicValue?: boolean;
+  staticValue?: string | number | boolean;
 }
 
 export interface ILessThan {
   argument: string;
-  equality: boolean;
-  self?: boolean;
-  lessThan?: string | number | boolean;
+  equalAndLess: boolean;
+  dynamicValue?: boolean;
+  staticValue?: string | number | boolean;
 }
 
 export interface INotEqual {
   argument: string;
-  self?: boolean;
-  notEqual: string | number | boolean;
+  dynamicValue?: boolean;
+  staticValue?: string | number | boolean;
 }
 
 export interface IIN {
   argument: string;
-  self?: boolean;
-  items?: string[];
+  dynamicValue?: boolean;
+  tuple?: any[];
 }
 
 // export interface IContains {
@@ -203,11 +213,10 @@ export interface IIN {
 
 interface IBatchQueries {
   query: string;
-  params: Record<string, unknown>;
+  params: Record<string, any>;
 }
-export interface IBatch {
+export interface IBatch extends IErrorPath {
   queries: IBatchQueries[];
-  errorPath: string;
 }
 
 export type tDbSelectFunc = (info: ISelect) => Promise<tResultSet>;
