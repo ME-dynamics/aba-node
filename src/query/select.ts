@@ -23,6 +23,5 @@ export function selectQuery(args: ISelectQuery) {
   const isDistinct = distinct ? "DISTINCT " : "";
   return `SELECT ${isDistinct}${clause} FROM ${tableName} WHERE ${where.join(
     andStr
-  )} ${limit ? `LIMIT ${limit}` : ""}  ${orderBy ? `ORDER BY ${orderBy.key}` : ""} ${orderBy ? orderBy.type : ""}  
-  ${allowFiltering ? "ALLOW FILTERING" : ""};`;
+  )}${limit ? ` LIMIT ${limit}` : ""}${orderBy ? ` ORDER BY ${orderBy.key}` : ""} ${orderBy ? orderBy.type : ""}${allowFiltering ? " ALLOW FILTERING" : ""};`;
 }
