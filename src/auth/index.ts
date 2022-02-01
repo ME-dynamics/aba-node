@@ -1,5 +1,5 @@
 import { httpResultClientError } from "../http-result";
-import { tRequest, IRoles, IAuth } from "../types";
+import type { tRequest, IRoles, IAuth } from "../types";
 
 const { unauthorized } = httpResultClientError;
 
