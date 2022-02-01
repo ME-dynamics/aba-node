@@ -12,9 +12,9 @@ export * as queryGen from "./src/query";
 
 export { StatusCodes as statusCodes } from "http-status-codes";
 
-export { httpClient, routeGen } from "./src/http-client";
+export { httpClient, buildRouteGenerator } from "./src/http-client";
 
 export * from "aba-utils";
 export { pump } from "./src/pump";
 
-export { errorSchema, fluentSchema } from "./src/schema";
+export { errorSchema, fluentSchema, errorSchemaObject } from "./src/schema";
