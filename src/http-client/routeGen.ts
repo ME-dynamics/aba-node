@@ -1,24 +1,40 @@
-import { IRouteGen } from "../types";
+import { ErrorFactory } from "aba-utils";
+import type { IBuildRouteGen } from "../types";
 
-export function routeGen(args: IRouteGen) {
-  const { version, role, routes } = args;
-  let finalRoute = "";
-  const length = routes.length;
-  for (let index = 0; index < length; index++) {
-    const route = routes[index];
-    for (let index = 0; index < route.length; index++) {
-      const char = route[index];
-      if (char === "/") {
-        continue;
+export function buildRouteGenerator(args: IBuildRouteGen) {
+  const { version, service } = args;
+  const base = `/api/${version}/${service}`;
+
+  return function routeGen(routes: string[]) {
+    let finalRoute = "/";
+    for (let index = 0; index < routes.length; index++) {
+      const route = routes[index];
+      for (let charIndex = 0; charIndex < route.length; charIndex++) {
+        const char = route[charIndex];
+        if (char === " ") {
+          throw new ErrorFactory({
+            name: "invalid route",
+            message: "route cannot contain spaces",
+            detail: `route: ${route}`,
+            nativeError: undefined,
+            path: `${base}`,
+          });
+        }
+        if (char === "/") {
+          throw new ErrorFactory({
+            name: "invalid route",
+            message: "route cannot contain /",
+            detail: `route: ${route}`,
+            nativeError: undefined,
+            path: `${base}`,
+          });
+        }
       }
-      finalRoute = finalRoute + char;
+      finalRoute += route;
+      if (index !== routes.length - 1) {
+        finalRoute += "/";
+      }
     }
-    if (index !== length - 1) {
-      finalRoute = finalRoute + "/";
-    }
-  }
-  const apiRoute = `/api/${version}/${
-    role === "shared" ? "" : `${role}/`
-  }${finalRoute}`;
-  return apiRoute;
+    return `${base}${finalRoute}`;
+  };
 }

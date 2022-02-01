@@ -1,8 +1,8 @@
 import fastify from "fastify";
-import { tHttpOptions } from "../types";
+import type { tHttpOptions } from "../types";
 
 export function httpClient(args: tHttpOptions) {
   return fastify(args);
 }
 
-export { routeGen } from "./routeGen";
+export { buildRouteGenerator } from "./routeGen";
