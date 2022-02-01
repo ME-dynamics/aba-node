@@ -14,8 +14,8 @@ describe("secure random number", () => {
         min: min[index],
         max: max[index],
       });
-      expect(result).toBeLessThan(max[index]);
-      expect(result).toBeGreaterThan(min[index]);
+      expect(result).toBeLessThanOrEqual(max[index]);
+      expect(result).toBeGreaterThanOrEqual(min[index]);
     }
   });
   it("should throw error if min is greater than max", async () => {
