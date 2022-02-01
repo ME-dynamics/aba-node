@@ -10,11 +10,11 @@ import { separator } from "./constant";
  * @returns an equality string for scylla db
  */
 export function equal(args: IEqual) {
-  const { argument, equals, self } = args;
-  if (self) {
+  const { argument, dynamicValue, staticValue } = args;
+  if (dynamicValue) {
     return `${argument.toLowerCase()} = :${argument.toLowerCase()}`;
   } else {
-    return `${argument.toLowerCase()} = ${equals}`;
+    return `${argument.toLowerCase()} = ${staticValue}`;
   }
 }
 
@@ -25,13 +25,13 @@ export function equal(args: IEqual) {
  * @returns a greater than string for scylla db
  */
 export function greaterThan(args: IGreaterThan) {
-  const { argument, greaterThan, equality, self } = args;
-  if (self) {
+  const { argument, equalAndGreater, staticValue, dynamicValue } = args;
+  if (dynamicValue) {
     return `${argument.toLowerCase()} >${
-      equality ? "=" : ""
+      equalAndGreater ? "=" : ""
     } :${argument.toLowerCase()}`;
   } else {
-    return `${argument.toLowerCase()} >${equality ? "=" : ""} ${greaterThan}`;
+    return `${argument.toLowerCase()} >${equalAndGreater ? "=" : ""} ${staticValue}`;
   }
 }
 
@@ -42,13 +42,13 @@ export function greaterThan(args: IGreaterThan) {
  * @returns a less than string for scylla db
  */
 export function lessThan(args: ILessThan) {
-  const { argument, lessThan, equality, self } = args;
-  if (self) {
+  const { argument, staticValue, equalAndLess, dynamicValue } = args;
+  if (dynamicValue) {
     return `${argument.toLowerCase()} <${
-      equality ? "=" : ""
+      equalAndLess ? "=" : ""
     } :${argument.toLowerCase()}`;
   } else {
-    return `${argument.toLowerCase()} <${equality ? "=" : ""} ${lessThan}`;
+    return `${argument.toLowerCase()} <${equalAndLess ? "=" : ""} ${staticValue}`;
   }
 }
 
@@ -59,11 +59,11 @@ export function lessThan(args: ILessThan) {
  * @returns a not equal string for scylla db
  */
 export function notEqual(args: INotEqual) {
-  const { argument, notEqual, self } = args;
-  if (self) {
+  const { argument, dynamicValue, staticValue } = args;
+  if (dynamicValue) {
     return `${argument.toLowerCase()} != :${argument.toLowerCase()}`;
   } else {
-    return `${argument.toLowerCase()} != ${notEqual}`;
+    return `${argument.toLowerCase()} != ${staticValue}`;
   }
 }
 /**
@@ -74,11 +74,11 @@ export function notEqual(args: INotEqual) {
  * @returns a IN operation string
  */
 export function IN(args: IIN) {
-  const { argument, items, self } = args;
-  if (self) {
+  const { argument, tuple, dynamicValue } = args;
+  if (dynamicValue) {
     return `${argument} IN :${argument}`;
   } else {
-    return `${argument.toLowerCase()} IN (${items?.join(separator)})`;
+    return `${argument.toLowerCase()} IN (${tuple?.join(separator)})`;
   }
 }
 
