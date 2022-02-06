@@ -1,5 +1,5 @@
 import { ErrorFactory } from "aba-utils";
-import { IBuildDbFunc, ISelect, IQueryOptions ,tResultSet } from "../types";
+import { IBuildDbFunc, ISelect, IQueryOptions, tResultSet } from "../types";
 
 /**
  ** builds select function for selecting rows, also check uniqueness if needed
@@ -8,15 +8,17 @@ import { IBuildDbFunc, ISelect, IQueryOptions ,tResultSet } from "../types";
  */
 export function buildSelect(args: IBuildDbFunc) {
   const { client } = args;
-  function queryOptionsGen(queryOptions: IQueryOptions | undefined): IQueryOptions {
-    if(!queryOptions){
+  function queryOptionsGen(
+    queryOptions: IQueryOptions | undefined
+  ): IQueryOptions {
+    if (!queryOptions) {
       return {
         autoPage: undefined,
         consistency: undefined,
         fetchSize: undefined,
         pageState: undefined,
-        serialConsistency: undefined
-      }
+        serialConsistency: undefined,
+      };
     }
     return queryOptions;
   }
@@ -31,13 +33,8 @@ export function buildSelect(args: IBuildDbFunc) {
    */
   return async function select(info: ISelect): Promise<tResultSet> {
     const { query, params, unique, queryOptions, errorPath } = info;
-    const {
-      autoPage,
-      consistency,
-      fetchSize,
-      pageState,
-      serialConsistency,
-    } = queryOptionsGen(queryOptions);
+    const { autoPage, consistency, fetchSize, pageState, serialConsistency } =
+      queryOptionsGen(queryOptions);
     try {
       const result = await client.execute(query, params, {
         prepare: true,
@@ -53,7 +50,11 @@ export function buildSelect(args: IBuildDbFunc) {
           name: "row_must_be_unique",
           message: "results should contain only one row",
           detail: `results: ${result.rows.toString()}, must be dealt with immediately. query: ${query}
-             , params: ${params}, info: ${result.info}`,
+             , params: ${JSON.stringify(
+               params,
+               null,
+               2
+             )}, info: ${JSON.stringify(result.info, null, 2)}`,
           path: errorPath,
           nativeError: undefined,
         });
@@ -63,7 +64,11 @@ export function buildSelect(args: IBuildDbFunc) {
       throw new ErrorFactory({
         name: "select_failed",
         message: "problem in executing query",
-        detail: `query: ${query}, params: ${params} failed to execute`,
+        detail: `query: ${query}, params: ${JSON.stringify(
+          params,
+          null,
+          2
+        )} failed to execute`,
         path: errorPath,
         nativeError: error,
       });

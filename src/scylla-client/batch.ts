@@ -17,7 +17,7 @@ export function buildBatch(args: IBuildDbFunc) {
       throw new ErrorFactory({
         name: "batch_failed",
         message: "batch is not applied",
-        detail: `batch: ${JSON.stringify(info)} failed`,
+        detail: `batch: ${queries.join(", ")} failed`,
         nativeError: error,
         path: errorPath,
       });
