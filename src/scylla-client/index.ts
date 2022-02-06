@@ -3,6 +3,7 @@ import { buildInit } from "./init";
 import { buildSelect } from "./select";
 import { buildExecute } from "./execute";
 import { buildBatch } from "./batch";
+import { buildConcurrent } from "./concurrent"
 import { Uuid } from "./datatype"
 import { IScyllaClient } from "../types";
 import { ErrorFactory } from "aba-utils";
@@ -40,6 +41,7 @@ export function scyllaClient(info: IScyllaClient) {
       insert: buildExecute({ client, mode: "insert" }),
       update: buildExecute({ client, mode: "update" }),
       delete: buildExecute({ client, mode: "delete" }),
+      concurrent: buildConcurrent({ client }),
     };
   } catch (error) {
     throw new ErrorFactory({

@@ -4,7 +4,7 @@ export * as types from "./src/types";
 export { auth } from "./src/auth";
 
 export { secureRandomNumber } from "./src/random-digits";
-export * from "./src/http-result";
+export { httpResult } from "./src/http-result";
 
 export { scyllaClient, dataType } from "./src/scylla-client";
 
