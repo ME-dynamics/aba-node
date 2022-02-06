@@ -1,7 +1,7 @@
-import { httpResultClientError } from "../http-result";
+import { httpResult } from "../http-result";
 import type { tRequest, IRoles, IAuth } from "../types";
 
-const { unauthorized } = httpResultClientError;
+const { unauthorized } = httpResult.clientError;
 
 export function auth<T>(httpRequest: tRequest<T>, roles: IRoles): IAuth {
   const jwtPayload = httpRequest.headers["x-jwt-payload"];
