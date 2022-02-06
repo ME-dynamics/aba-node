@@ -19,6 +19,18 @@ export interface IBuildDbFunc {
   mode?: "delete" | "init" | "insert" | "update";
 }
 
+export interface IConcurrentQuery {
+  query: string;
+  params: Record<string, any>[];
+}
+export interface IConcurrent extends IErrorPath {
+  queries: IConcurrentQuery[];
+}
+export interface IConcurrentResult {
+  resultItems: any[];
+  totalExecuted: number;
+  allExecuted: boolean;
+}
 export interface IQueryOptions {
   autoPage: boolean | undefined;
   fetchSize: number | undefined;
