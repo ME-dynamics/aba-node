@@ -1,5 +1,11 @@
-export * as httpResultSuccess from "./success";
-export * as httpResultClientError from "./clientError";
-export * as httpResultServerError from "./serverError";
-export * as httpResultRedirection from "./redirection";
-// TODO: add every status code description to document
+import * as httpResultSuccess from "./success";
+import * as httpResultClientError from "./clientError";
+import * as httpResultServerError from "./serverError";
+import * as httpResultRedirection from "./redirection";
+
+export const httpResult = {
+  success: httpResultSuccess,
+  clientError: httpResultClientError,
+  serverError: httpResultServerError,
+  redirection: httpResultRedirection,
+};
