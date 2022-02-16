@@ -35,6 +35,10 @@ export function buildRouteGenerator(args: IBuildRouteGen) {
         finalRoute += "/";
       }
     }
+    const route = `${base}${finalRoute}`;
+    if(process.env.NODE_ENV !== "production") { 
+      console.log(`route: ${route}`);
+    }
     return `${base}${finalRoute}`;
   };
 }
