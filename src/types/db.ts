@@ -161,14 +161,14 @@ export interface IUpdateQuery {
   values: IValues[];
   where: string[];
   lwt?: string[];
-  logIdLabel: string;
+  logIdLabel: string[];
 }
 export interface IDeleteQuery {
   table: string;
   version: string;
   columns: string[] | undefined;
   where: string[];
-  logIdLabel: string;
+  logIdLabel: string[];
   lwt?: string[];
 }
 export interface ISelectQuery {

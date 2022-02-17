@@ -1,5 +1,5 @@
 import { separator, andStr } from "./constant";
-import { insertQuery } from "./insert";
+import { logIdStringify } from "./logIdStringify";
 import type { IDeleteQuery, IDmlQuery } from "../types";
 
 /**
@@ -16,7 +16,10 @@ export function deleteQuery(args: IDeleteQuery): IDmlQuery {
   const query = `DELETE${deleteColumns.toLowerCase()}FROM ${tableName} WHERE ${where.join(
     andStr
   )} ${ifClause};`;
-  const logQuery = `INSERT INTO ${tableName}_log (${logIdLabel}, dml) VALUES (:${logIdLabel}, 'remove');`;
+  const logId = logIdStringify(logIdLabel);
+  const logQuery = `INSERT INTO ${tableName}_log (${logIdLabel.join(
+    ", "
+  )}, dml) VALUES (${logId}, 'remove');`;
   return {
     query,
     logQuery,

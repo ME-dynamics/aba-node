@@ -1,4 +1,5 @@
 import { separator, andStr } from "./constant";
+import { logIdStringify } from "./logIdStringify";
 import type { IUpdateQuery, IDmlQuery } from "../types";
 
 function updateLogQuery(args: IUpdateQuery): string {
@@ -19,9 +20,12 @@ function updateLogQuery(args: IUpdateQuery): string {
       columnsValues.push(`${staticValue}`);
     }
   }
-  return `INSERT INTO ${tableName}_log (${logIdLabel}, ${columns.join(
+  const logId = logIdStringify(logIdLabel);
+  return `INSERT INTO ${tableName}_log (${logIdLabel.join(
+    ", "
+  )}, ${columns.join(separator)}) VALUES (${logId}, ${columnsValues.join(
     separator
-  )}) VALUES (:${logIdLabel}, ${columnsValues.join(separator)});`;
+  )});`;
 }
 
 /**
@@ -54,6 +58,6 @@ export function updateQuery(args: IUpdateQuery): IDmlQuery {
   const logQuery = updateLogQuery(args);
   return {
     query,
-    logQuery
-  }
+    logQuery,
+  };
 }
