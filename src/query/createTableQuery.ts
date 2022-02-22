@@ -8,10 +8,10 @@ function createLogTableQuery(args: ICreateTable): string {
   const logDbColumns = columnStringify(
     columns.concat({ columnName: "dml", columnType: "TEXT" })
   );
-  const { partition } = primaryKey;
+  const { partition, cluster } = primaryKey;
   const logPrimaryKeys: IPrimaryKey = {
     partition: partition,
-    cluster: ["dml"],
+    cluster: cluster ? cluster.concat("dml") : ["dml"],
   };
   const primaryKeys = primaryKeyStringify(logPrimaryKeys);
 
