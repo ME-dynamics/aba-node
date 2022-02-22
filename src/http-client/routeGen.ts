@@ -4,8 +4,12 @@ import type { IBuildRouteGen } from "../types";
 export function buildRouteGenerator(args: IBuildRouteGen) {
   const { version, service } = args;
   const base = `/api/${version}/${service}`;
-
+  const isDev = process.env.NODE_ENV !== "production";
   return function routeGen(routes: string[]) {
+    if (routes.length === 0) {
+      if (isDev) console.log(base);
+      return base;
+    }
     let finalRoute = "/";
     for (let index = 0; index < routes.length; index++) {
       const route = routes[index];
@@ -36,7 +40,7 @@ export function buildRouteGenerator(args: IBuildRouteGen) {
       }
     }
     const route = `${base}${finalRoute}`;
-    if(process.env.NODE_ENV !== "production") { 
+    if (isDev) {
       console.log(`route: ${route}`);
     }
     return `${base}${finalRoute}`;
