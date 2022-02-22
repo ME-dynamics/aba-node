@@ -27,4 +27,12 @@ describe("route generator", () => {
     expect.assertions(1);
     expect(() => routeGen(["customers", " :customerId"])).toThrow();
   })
+  it("should return base when routes is empty array", () => {
+    const routeGen = buildRouteGenerator({
+      service: "business",
+      version: "v1",
+    });
+    expect.assertions(1);
+    expect(routeGen([])).toBe("/api/v1/business");
+  })
 });
