@@ -76,6 +76,7 @@ export type tScyllaNativeTypes =
   | "UUID"
   | "VARCHAR"
   | "VARINT"
+  | "LIST"
   | "SET"
   | "MAP"
   | "UDT";
