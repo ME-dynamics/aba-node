@@ -9,7 +9,7 @@ import type { IDbColumn } from "../types";
 export function columnStringify(columns: IDbColumn[]): string {
   const columnString: string[] = [];
   for (let index = 0; index < columns.length; index++) {
-    const { columnName, columnType, setType, udtName, mapType } =
+    const { columnName, columnType, setType, listType ,udtName, mapType } =
       columns[index];
     isReservedWord(columnName);
     /**
@@ -30,6 +30,7 @@ export function columnStringify(columns: IDbColumn[]): string {
      * also if setType is UDT, udtName should be de defined
      * and db column type in set must be frozen : set<frozen<UDT>>
      */
+    // TODO: throw error when list type is set for SET type and MAP TYPE
     if (columnType === "SET") {
       if (!setType) {
         throw new Error("setType must be defined when type is set to SET");
@@ -47,6 +48,27 @@ export function columnStringify(columns: IDbColumn[]): string {
       } else {
         columnString.push(
           `${columnName.toLowerCase()} set<${setType.toLowerCase()}>`
+        );
+      }
+      continue;
+    }
+    if (columnType === "LIST") {
+      if (!listType) {
+        throw new Error("listType must be defined when type is set to LIST");
+      }
+      if (listType === "LIST" || listType === "MAP" || listType === "SET") {
+        throw new Error("you cannot use set, map, or list inside list");
+      }
+      if (listType === "UDT") {
+        if (!udtName) {
+          throw new Error("udt name must be defined when type is set to UDT");
+        }
+        columnString.push(
+          `${columnName.toLowerCase()} list<frozen<${udtName.toLowerCase()}>>`
+        );
+      } else {
+        columnString.push(
+          `${columnName.toLowerCase()} list<${listType.toLowerCase()}>`
         );
       }
       continue;
@@ -90,6 +112,8 @@ export function columnStringify(columns: IDbColumn[]): string {
       }
       continue;
     }
+    // TODO: list
+
     // simple types
     columnString.push(
       `${columnName.toLowerCase()} ${columnType.toLowerCase()}`

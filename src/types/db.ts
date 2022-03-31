@@ -85,6 +85,7 @@ export interface IDbColumn {
   columnName: string;
   columnType: tScyllaNativeTypes;
   setType?: tScyllaNativeTypes;
+  listType?: tScyllaNativeTypes;
   udtName?: string;
   mapType?: {
     keyType: tScyllaNativeTypes;
