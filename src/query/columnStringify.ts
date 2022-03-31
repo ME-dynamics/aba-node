@@ -1,3 +1,4 @@
+import { isReservedWord } from "./isReservedWord";
 import type { IDbColumn } from "../types";
 
 /**
@@ -10,6 +11,7 @@ export function columnStringify(columns: IDbColumn[]): string {
   for (let index = 0; index < columns.length; index++) {
     const { columnName, columnType, setType, udtName, mapType } =
       columns[index];
+    isReservedWord(columnName);
     /**
      * if column type is UDT (user defined types)
      * udtName variable should be defined
