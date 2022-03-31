@@ -92,6 +92,37 @@ describe("scylla db column stringify", () => {
       columnStringify([{ columnName: "id", columnType: "SET", setType: "UDT" }])
     ).toThrow("udt name must be defined when type is set to UDT");
   });
+  // list
+  it("should throw listType must be defined error", () => {
+    expect(() =>
+      columnStringify([{ columnName: "id", columnType: "LIST" }])
+    ).toThrow("listType must be defined when type is set to LIST");
+  });
+  it("should throw listType cannot be set or map error", () => {
+    expect(() =>
+      columnStringify([
+        { columnName: "id", columnType: "LIST", listType: "SET" },
+      ])
+    ).toThrow("you cannot use set, map, or list inside list");
+    expect(() =>
+      columnStringify([
+        { columnName: "id", columnType: "LIST", listType: "MAP" },
+      ])
+    ).toThrow("you cannot use set, map, or list inside list");
+    expect(() =>
+      columnStringify([
+        { columnName: "id", columnType: "LIST", listType: "LIST" },
+      ])
+    ).toThrow("you cannot use set, map, or list inside list");
+  });
+  it("should throw listType udt name must be defined error", () => {
+    expect(() =>
+      columnStringify([
+        { columnName: "id", columnType: "LIST", listType: "UDT" },
+      ])
+    ).toThrow("udt name must be defined when type is set to UDT");
+  });
+  // list end
   it("should throw map key value error", () => {
     expect(() =>
       columnStringify([{ columnName: "id", columnType: "MAP" }])
@@ -129,15 +160,19 @@ describe("scylla db column stringify", () => {
     ).toThrow("udt name must be defined when type is set to UDT");
   });
   it("should throw reserved word error", () => {
-    expect.assertions(3)
+    expect.assertions(3);
     expect(() =>
       columnStringify([{ columnName: "token", columnType: "UUID" }])
     ).toThrow("token is a reserved word and cannot be used as a column name");
     expect(() =>
       columnStringify([{ columnName: "COLUMNFAMILY", columnType: "UUID" }])
-    ).toThrow("COLUMNFAMILY is a reserved word and cannot be used as a column name");
+    ).toThrow(
+      "COLUMNFAMILY is a reserved word and cannot be used as a column name"
+    );
     expect(() =>
-    columnStringify([{ columnName: "NORECURSIVE", columnType: "UUID" }])
-  ).toThrow("NORECURSIVE is a reserved word and cannot be used as a column name");
+      columnStringify([{ columnName: "NORECURSIVE", columnType: "UUID" }])
+    ).toThrow(
+      "NORECURSIVE is a reserved word and cannot be used as a column name"
+    );
   });
 });
