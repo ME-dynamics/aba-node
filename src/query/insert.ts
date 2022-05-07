@@ -1,4 +1,5 @@
 import { andStr, separator } from "./constant";
+import { timeToSeconds } from "./timeToSeconds";
 import type { IInsertQuery, IDmlQuery } from "../types";
 
 /**
@@ -7,7 +8,7 @@ import type { IInsertQuery, IDmlQuery } from "../types";
  * @returns an insert query string
  */
 export function insertQuery(args: IInsertQuery): IDmlQuery {
-  const { table, version, values, lwt } = args;
+  const { table, version, values, lwt, ttl } = args;
   const tableName = `${table.toLowerCase()}_${version.toLowerCase()}`;
   const columns = [];
   const clmnValues = [];
@@ -26,9 +27,11 @@ export function insertQuery(args: IInsertQuery): IDmlQuery {
       clmnValues.push(staticValue);
     }
   }
+  const usingTTL = ttl ? ` USING TTL ${timeToSeconds(ttl)}` : "";
   const query = `INSERT INTO ${tableName} (${columns.join(
     separator
-  )}) VALUES (${clmnValues.join(separator)}) ${ifClause};`;
+  )}) VALUES (${clmnValues.join(separator)}) ${ifClause}${usingTTL};`;
+  // log query
   const logColumns = ["dml", ...columns];
   const logColumnsValues = ["'create'", ...clmnValues];
   const logQuery = `INSERT INTO ${tableName}_log (${logColumns.join(
