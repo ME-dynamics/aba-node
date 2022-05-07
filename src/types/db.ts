@@ -151,11 +151,18 @@ export interface IValues {
   staticValue?: string | number | boolean | null;
   dynamicValue?: boolean;
 }
+
+export interface ITTL {
+  hours?: number;
+  minutes?: number;
+  seconds?: number;
+}
 export interface IInsertQuery {
   table: string;
   version: string;
   values: IValues[];
   lwt?: string[];
+  ttl?: ITTL;
 }
 export interface IUpdateQuery {
   table: string;
@@ -164,6 +171,7 @@ export interface IUpdateQuery {
   where: string[];
   lwt?: string[];
   logIdLabel: string[];
+  ttl?: ITTL;
 }
 export interface IDeleteQuery {
   table: string;
