@@ -6,4 +6,5 @@ export { selectQuery } from "./select";
 export { deleteQuery } from "./delete";
 export { insertQuery } from "./insert";
 export { updateQuery } from "./update";
+export { timeToSeconds } from "./timeToSeconds";
 export * as operators from "./operator";
