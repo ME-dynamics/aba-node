@@ -1,5 +1,6 @@
 import { separator, andStr } from "./constant";
 import { logIdStringify } from "./logIdStringify";
+import { timeToSeconds } from "./timeToSeconds";
 import type { IUpdateQuery, IDmlQuery } from "../types";
 
 function updateLogQuery(args: IUpdateQuery): string {
@@ -34,7 +35,7 @@ function updateLogQuery(args: IUpdateQuery): string {
  * @returns a query string
  */
 export function updateQuery(args: IUpdateQuery): IDmlQuery {
-  const { table, version, values, where, lwt } = args;
+  const { table, version, values, where, lwt, ttl } = args;
   const tableName = `${table.toLowerCase()}_${version.toLowerCase()}`;
   const updateInfo = [];
   const ifClause = lwt ? `IF ${lwt.join(andStr)}` : "";
@@ -52,7 +53,8 @@ export function updateQuery(args: IUpdateQuery): IDmlQuery {
       updateInfo.push(`${column.toLowerCase()} = ${staticValue}`);
     }
   }
-  const query = `UPDATE ${tableName} SET ${updateInfo.join(
+  const usingTTL = ttl ? ` USING TTL ${timeToSeconds(ttl)}` : "";
+  const query = `UPDATE ${tableName}${usingTTL} SET ${updateInfo.join(
     separator
   )} WHERE ${where.join(andStr)} ${ifClause};`;
   const logQuery = updateLogQuery(args);
