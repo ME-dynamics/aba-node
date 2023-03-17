@@ -4,8 +4,10 @@ import { buildSelect } from "./select";
 import { buildExecute } from "./execute";
 import { buildBatch } from "./batch";
 import { Uuid } from "./datatype"
-import { IScyllaClient } from "../types";
 import { ErrorFactory } from "aba-utils";
+import type { IScyllaClient } from "../types";
+
+
 export * as dataType from "./datatype";
 
 /**

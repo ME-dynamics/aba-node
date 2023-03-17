@@ -1,4 +1,4 @@
-import { IPrimaryKey } from "../types";
+import type { IPrimaryKey } from "../types";
 
 /**
  ** turn partition key and clustering key into valid

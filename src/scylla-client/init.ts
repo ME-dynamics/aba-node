@@ -1,5 +1,5 @@
 import { ErrorFactory } from "aba-utils";
-import { IBuildDbFunc, IInit, tResultSet } from "../types";
+import type { IBuildDbFunc, IInit, tResultSet } from "../types";
 
 /**
  ** builds init function for initializing tables, UDTs etc

@@ -1,6 +1,6 @@
 import { primaryKeyStringify } from "./primaryKeyStringify";
 import { stringifyOrderBy } from "./stringifyOrderBy";
-import { IMaterialView, IQuery } from "../types";
+import type { IMaterialView, IQuery } from "../types";
 
 /**
  ** builds a materialized view query for scylla db, it checks if view exists

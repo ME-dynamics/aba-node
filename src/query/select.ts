@@ -1,5 +1,5 @@
 import { separator, andStr } from "./constant";
-import { ISelectQuery } from "../types";
+import type { ISelectQuery } from "../types";
 
 /**
  ** builds select query for scylla db

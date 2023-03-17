@@ -1,5 +1,5 @@
 import { columnStringify } from "./columnStringify";
-import { ICreateType, IQuery } from "../types";
+import type { ICreateType, IQuery } from "../types";
 
 
 /**

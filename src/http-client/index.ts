@@ -1,5 +1,5 @@
 import fastify from "fastify";
-import { IHttpClient } from "../types"
+import type { IHttpClient } from "../types"
 
 
 export function httpClient(args: IHttpClient) {

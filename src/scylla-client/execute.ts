@@ -1,5 +1,5 @@
 import { ErrorFactory } from "aba-utils";
-import { IBuildDbFunc, IQueryExec, tResultSet } from "../types";
+import type { IBuildDbFunc, IQueryExec, tResultSet } from "../types";
 
 /**
  ** builds execute function for executing query in database

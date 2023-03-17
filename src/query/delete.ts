@@ -1,5 +1,5 @@
-import { IDeleteQuery } from "../types";
 import { separator, andStr } from "./constant";
+import type { IDeleteQuery } from "../types";
 
 
 /**

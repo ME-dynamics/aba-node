@@ -1,6 +1,6 @@
-import { FastifyRequest, FastifyReply } from "fastify";
+import { FastifyRequest, FastifyReply, RouteGenericInterface } from "fastify";
 
-export type tRequest<T> = FastifyRequest<T>;
+export type tRequest<T extends RouteGenericInterface> = FastifyRequest<T>;
 // http interfaces start
 export type tReply = FastifyReply;
 // http interfaces end

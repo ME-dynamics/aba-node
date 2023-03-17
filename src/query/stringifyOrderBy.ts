@@ -1,4 +1,4 @@
-import { IOrderBy } from "../types";
+import type { IOrderBy } from "../types";
 
 export function stringifyOrderBy(orderBy?: IOrderBy[]): string {
   if (!orderBy) {

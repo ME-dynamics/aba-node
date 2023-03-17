@@ -1,5 +1,5 @@
-import { IEqual, INotEqual, IGreaterThan, ILessThan, IIN } from "../types";
 import { separator } from "./constant";
+import type { IEqual, INotEqual, IGreaterThan, ILessThan, IIN } from "../types";
 
 /**
  ** will generate a equal statement

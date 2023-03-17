@@ -1,4 +1,4 @@
-import { IDbColumn } from "../types";
+import type { IDbColumn } from "../types";
 
 
 /**

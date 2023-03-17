@@ -1,7 +1,7 @@
 import { columnStringify } from "./columnStringify";
 import { primaryKeyStringify } from "./primaryKeyStringify";
 import { stringifyOrderBy } from "./stringifyOrderBy";
-import { ICreateTable, IQuery } from "../types";
+import type { ICreateTable, IQuery } from "../types";
 
 /**
  ** builds a create table query for scylla db, it checks if table exists

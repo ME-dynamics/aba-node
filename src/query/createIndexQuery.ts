@@ -1,4 +1,4 @@
-import { ICreateIndex } from "../types";
+import type { ICreateIndex } from "../types";
 
 /**
  ** create index on a field that's outside primary key in scylla db, it checks if index exists

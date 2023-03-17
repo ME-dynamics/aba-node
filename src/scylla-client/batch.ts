@@ -1,5 +1,5 @@
 import { ErrorFactory } from "aba-utils";
-import { IBuildDbFunc, IBatch, tResultSet } from "../types";
+import type { IBuildDbFunc, IBatch, tResultSet } from "../types";
 
 /**
  * builds batch function for executing batch statement

@@ -1,5 +1,5 @@
 import { separator, andStr } from "./constant";
-import { IUpdateQuery } from "../types";
+import type { IUpdateQuery } from "../types";
 
 /**
  * produce query to update row in scylla db

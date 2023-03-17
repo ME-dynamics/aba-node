@@ -1,5 +1,5 @@
 import { StatusCodes } from "http-status-codes";
-import { IErrorResult, IReqError } from "../types";
+import type { IErrorResult, IReqError } from "../types";
 
 /**
  ** general function for server error 

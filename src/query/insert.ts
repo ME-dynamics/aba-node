@@ -1,5 +1,5 @@
-import { IInsertQuery } from "../types";
 import { andStr, separator } from "./constant";
+import type { IInsertQuery } from "../types";
 
 /**
  * produce query to insert rows into scylla db
