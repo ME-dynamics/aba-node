@@ -9,3 +9,5 @@ export * from "./db";
 export * from "./pump";
 
 export * from "./http";
+
+export * from "./logger";
