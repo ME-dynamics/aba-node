@@ -1,13 +1,20 @@
 import { ErrorFactory } from "aba-utils";
+import { buildLogger } from "../logger";
 import type { IBuildRouteGen } from "../types";
 
 export function buildRouteGenerator(args: IBuildRouteGen) {
   const { version, service } = args;
   const base = `/api/${version}/${service}`;
-  const isDev = process.env.NODE_ENV !== "production";
+  const isDev = process.env["NODE_ENV"] !== "production";
+  const logger = buildLogger({
+    app: `${service}-${version}`,
+    info: base,
+    layer: "route-gen",
+  });
   return function routeGen(routes: string[]) {
+    const log = logger.metadata({ routes }).init();
     if (routes.length === 0) {
-      if (isDev) console.log(base);
+      if (isDev) log.info("no routes provided, returning base route", { base });
       return base;
     }
     let finalRoute = "/";
@@ -21,7 +28,6 @@ export function buildRouteGenerator(args: IBuildRouteGen) {
             message: "route cannot contain spaces",
             detail: `route: ${route}`,
             nativeError: undefined,
-            path: `${base}`,
           });
         }
         if (char === "/") {
@@ -30,7 +36,6 @@ export function buildRouteGenerator(args: IBuildRouteGen) {
             message: "route cannot contain /",
             detail: `route: ${route}`,
             nativeError: undefined,
-            path: `${base}`,
           });
         }
       }
@@ -41,7 +46,7 @@ export function buildRouteGenerator(args: IBuildRouteGen) {
     }
     const route = `${base}${finalRoute}`;
     if (isDev) {
-      console.log(`route: ${route}`);
+      log.info("generated route", { route });
     }
     return `${base}${finalRoute}`;
   };
