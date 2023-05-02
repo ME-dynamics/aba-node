@@ -5,7 +5,8 @@ export type tRequest<T extends RouteGenericInterface> = FastifyRequest<T>;
 export type tReply = FastifyReply;
 // http interfaces end
 
-
 export interface IHttpClient {
-    dev: boolean;
+  dev: boolean;
 }
+
+export type tRouteGenericInterface = RouteGenericInterface;
