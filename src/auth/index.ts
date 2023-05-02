@@ -1,10 +1,12 @@
 import { httpResultClientError } from "../http-result";
-import type { RouteGenericInterface } from "fastify";
-import type { tRequest, IRoles } from "../types";
+import type { tRequest, IRoles, tRouteGenericInterface } from "../types";
 
 const { unauthorized } = httpResultClientError;
 
-export function auth<T extends RouteGenericInterface>(httpRequest: tRequest<T>, roles: IRoles) {
+export function auth<T extends tRouteGenericInterface>(
+  httpRequest: tRequest<T>,
+  roles: IRoles
+) {
   const jwtPayload = httpRequest.headers["x-jwt-payload"];
   if (typeof jwtPayload !== "string") {
     return unauthorized({ error: "jwt is not defined" });
