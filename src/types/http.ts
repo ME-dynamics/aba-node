@@ -3,9 +3,10 @@ import {
   FastifyReply,
   FastifyInstance,
   FastifyServerOptions,
+  RouteGenericInterface
 } from "fastify";
 
-export type tRequest<T> = FastifyRequest<T>;
+export type tRequest<T extends RouteGenericInterface> = FastifyRequest<T>;
 // http interfaces start
 export type tReply = FastifyReply;
 // http interfaces end
@@ -18,3 +19,5 @@ export interface IBuildRouteGen {
   version: string;
   service: string;
 }
+
+export type tRouteGenericInterface = RouteGenericInterface;

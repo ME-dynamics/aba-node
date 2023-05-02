@@ -1,6 +1,6 @@
 {
   "name": "aba-node",
-  "version": "0.4.7",
+  "version": "0.5.0",
   "description": "node js utilities",
   "main": "build/index.js",
   "repository": "https://github.com/eyousefifar/aba-node",
@@ -9,37 +9,37 @@
   "scripts": {
     "clean": "rimraf build && rimraf docs/*",
     "typedoc": "typedoc --readme ./README.md",
-    "prepack": "npm run clean && tsc && npm run typedoc",
+    "prepack": "npm run clean && tsc",
     "test": "jest",
     "test:watch": "jest --watch"
   },
   "devDependencies": {
-    "@types/benchmark": "^2.1.1",
+    "@types/benchmark": "^2.1.2",
     "@types/http-status-codes": "^1.2.0",
-    "@types/jest": "^27.5.0",
+    "@types/jest": "^29.5.1",
     "@types/microtime": "^2.1.0",
-    "@types/node": "16.11.7",
-    "@types/uuid": "8.3.4",
-    "@typescript-eslint/eslint-plugin": "5.22.0",
-    "@typescript-eslint/parser": "5.22.0",
+    "@types/node": "18.15.3",
+    "@types/uuid": "9.0.1",
+    "@typescript-eslint/eslint-plugin": "5.55.0",
+    "@typescript-eslint/parser": "5.55.0",
     "benchmark": "^2.1.4",
-    "eslint": "^8.15.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-jest": "^26.1.5",
-    "eslint-plugin-security": "^1.5.0",
-    "jest": "^28.1.0",
-    "microtime": "^3.0.0",
-    "prettier": "2.6.2",
-    "rimraf": "^3.0.2",
-    "ts-jest": "^28.0.1",
-    "typedoc": "^0.22.15",
-    "typescript": "^4.6.4"
+    "eslint": "^8.39.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-jest": "^27.2.1",
+    "eslint-plugin-security": "^1.7.1",
+    "fastify": "^4.17.0",
+    "jest": "^29.5.0",
+    "microtime": "^3.1.1",
+    "prettier": "2.8.4",
+    "rimraf": "^4.4.0",
+    "ts-jest": "^29.0.5",
+    "typescript": "^5.0.2"
   },
   "dependencies": {
-    "aba-utils": "0.5.6",
-    "cassandra-driver": "^4.6.3",
-    "fastify": "^3.29.0",
-    "fluent-json-schema": "^3.1.0",
-    "http-status-codes": "^2.2.0"
+    "aba-utils": "0.6.2",
+    "cassandra-driver": "^4.6.4",
+    "http-status-codes": "^2.2.0",
+    "hyperid": "^3.1.1",
+    "pino": "^8.11.0"
   }
 }

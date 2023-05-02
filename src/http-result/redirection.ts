@@ -1,5 +1,5 @@
 import { StatusCodes } from "http-status-codes";
-import { IPayloadResult, IUrl } from "../types";
+import type { IPayloadResult, IUrl } from "../types";
 
 /**
  ** general function for redirection

@@ -6,6 +6,6 @@ export * from "./randomDigits";
 
 export * from "./db";
 
-export * from "./pump";
+export * from "./logger";
 
 export * from "./http";

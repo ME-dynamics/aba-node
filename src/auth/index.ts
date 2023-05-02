@@ -1,9 +1,12 @@
 import { httpResult } from "../http-result";
-import type { tRequest, IRoles, IAuth } from "../types";
+import type { tRequest, IRoles, IAuth, tRouteGenericInterface } from "../types";
 
 const { unauthorized } = httpResult.clientError;
 
-export function auth<T>(httpRequest: tRequest<T>, roles: IRoles): IAuth {
+export function auth<T extends tRouteGenericInterface>(
+  httpRequest: tRequest<T>,
+  roles: IRoles
+): IAuth {
   const jwtPayload = httpRequest.headers["x-jwt-payload"];
   if (typeof jwtPayload !== "string") {
     return {

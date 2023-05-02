@@ -1,5 +1,5 @@
 import { StatusCodes } from "http-status-codes";
-import { IPayloadResult, IPayload } from "../types";
+import type { IPayloadResult, IPayload } from "../types";
 
 /**
  ** general function for success http result
