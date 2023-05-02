@@ -11,7 +11,6 @@ export async function cryptoRandom(value: number): Promise<Buffer> {
       message: "No suitable random number generator available.",
       detail:
         "Ensure that your runtime is linked against OpenSSL ( or an equivalent ) correctly.",
-      path: `random digits module, secure random function`,
       nativeError: undefined,
     });
   }

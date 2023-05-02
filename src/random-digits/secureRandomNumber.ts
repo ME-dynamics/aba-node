@@ -20,7 +20,6 @@ export async function secureRandomNumber(
       name: "minNotDefined",
       message: "you should define min value",
       detail: "",
-      path: `random digits, secure random module`,
       nativeError: undefined,
     });
   }
@@ -30,7 +29,6 @@ export async function secureRandomNumber(
       name: "maxNotDefined",
       message: "you should define max value",
       detail: "",
-      path: `random digits, secure random module`,
       nativeError: undefined,
     });
   }
@@ -40,7 +38,6 @@ export async function secureRandomNumber(
       name: "minNotInteger",
       message: "you should define min as an integer",
       detail: "",
-      path: `random digits, secure random module`,
       nativeError: undefined,
     });
   }
@@ -50,7 +47,6 @@ export async function secureRandomNumber(
       name: "maxNotInteger",
       message: "you should define max as an integer",
       detail: "",
-      path: `random digits, secure random module`,
       nativeError: undefined,
     });
   }
@@ -60,7 +56,6 @@ export async function secureRandomNumber(
       name: "maxLowerThanMin",
       message: "max must be greater than min",
       detail: "",
-      path: `random digits, secure random module`,
       nativeError: undefined,
     });
   }
@@ -78,7 +73,6 @@ export async function secureRandomNumber(
       name: "minSafeInteger",
       message: "must be safe integer ",
       detail: "",
-      path: `random digits, secure random module`,
       nativeError: undefined,
     });
   }
@@ -88,7 +82,6 @@ export async function secureRandomNumber(
       name: "maxSafeInteger",
       message: "must be safe integer ",
       detail: "",
-      path: `random digits, secure random module`,
       nativeError: undefined,
     });
   }
@@ -100,7 +93,6 @@ export async function secureRandomNumber(
       name: "rangeSafeInteger",
       message: "must be safe integer ",
       detail: "",
-      path: `random digits, secure random module`,
       nativeError: undefined,
     });
   }
