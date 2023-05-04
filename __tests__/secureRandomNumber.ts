@@ -1,4 +1,4 @@
-import { secureRandomNumber } from "../index";
+import { secureRandomNumber } from "../src/random-digits";
 
 describe("secure random number", () => {
   it("should generate between range", async () => {

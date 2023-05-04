@@ -1,4 +1,4 @@
-import { buildRouteGenerator } from "../src/http-client/routeGen";
+import { buildRouteGenerator } from "../src//route-gen";
 
 describe("route generator", () => {
   it("should return correct path", () => {
