@@ -41,46 +41,46 @@ export function auth<T extends tRouteGenericInterface>(
       };
     }
     const { admin, accountant, assistant, customer, provider, support } = roles;
-    // if admin, can access all the routes
+
     if (admin && jwt["admin"]) {
       return {
         success: true,
-        error: unauthorized({ error: "undefined error" }),
+        error: undefined,
         payload: { userId: jwt["sub"], role: "admin" },
       };
     }
     if (provider && jwt["provider"]) {
       return {
         success: true,
-        error: unauthorized({ error: "undefined error" }),
+        error: undefined,
         payload: { userId: jwt["sub"], role: "provider" },
       };
     }
     if (customer && jwt["customer"]) {
       return {
         success: true,
-        error: unauthorized({ error: "undefined error" }),
+        error: undefined,
         payload: { userId: jwt["sub"], role: "customer" },
       };
     }
     if (assistant && jwt["assistant"]) {
       return {
         success: true,
-        error: unauthorized({ error: "undefined error" }),
+        error: undefined,
         payload: { userId: jwt["sub"], role: "assistant" },
       };
     }
     if (accountant && jwt["accountant"]) {
       return {
         success: true,
-        error: unauthorized({ error: "undefined error" }),
+        error: undefined,
         payload: { userId: jwt["sub"], role: "accountant" },
       };
     }
     if (support && jwt["support"]) {
       return {
         success: true,
-        error: unauthorized({ error: "undefined error" }),
+        error: undefined,
         payload: { userId: jwt["sub"], role: "support" },
       };
     }
@@ -92,7 +92,7 @@ export function auth<T extends tRouteGenericInterface>(
   } catch (error) {
     return {
       success: false,
-      error: unauthorized({ error: "jwt is not defined" }),
+      error: unauthorized({ error: "jwt parse error" }),
       payload: { userId: "", role: "" },
     };
   }
