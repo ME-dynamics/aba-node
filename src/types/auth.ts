@@ -11,7 +11,7 @@ export interface IRoles {
 
 export interface IAuth {
   success: boolean;
-  error: IErrorResult;
+  error: IErrorResult | undefined;
   payload: {
     userId: string;
     role:
