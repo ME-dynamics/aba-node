@@ -7,7 +7,7 @@
   "author": "Erfan Yousefifar",
   "license": "UNLICENSED",
   "scripts": {
-    "clean": "rimraf build && rimraf docs/*",
+    "clean": "rimraf build",
     "typedoc": "typedoc --readme ./README.md",
     "prepack": "npm run clean && tsc",
     "test": "jest",
